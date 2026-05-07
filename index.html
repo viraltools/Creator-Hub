@@ -184,6 +184,20 @@
 let currentTool = "";
 
 function openTool(tool){
+  const links = {
+    caption: "https://chatgpt.com/",
+    thumbnail: "https://www.canva.com/",
+    logo: "https://www.canva.com/logo-maker/",
+    seo: "https://www.semrush.com/",
+    description: "https://chatgpt.com/",
+    converter: "https://www.ilovepdf.com/"
+  };
+
+  if(links[tool]){
+    window.open(links[tool], "_blank");
+    return;
+  }
+
   currentTool = tool;
   document.getElementById('modal').style.display='flex';
   document.getElementById('result').innerText='';
