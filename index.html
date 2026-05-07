@@ -166,6 +166,7 @@
 
     .tools-grid {
       display: grid;
+      align-items: stretch;
       margin-top: 20px;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 28px;
@@ -173,6 +174,9 @@
     }
 
     .tool-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       background: linear-gradient(180deg, rgba(15,23,42,0.95), rgba(10,15,30,0.95));
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 24px;
@@ -203,6 +207,7 @@
     }
 
     .tool-header {
+      min-height: 90px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -238,6 +243,7 @@
     }
 
     .tool-list {
+      flex: 1;
       list-style: none;
       display: flex;
       flex-direction: column;
@@ -260,6 +266,7 @@
     }
 
     .explore-btn {
+      margin-top: auto;
       width: 100%;
       display: inline-block;
       text-align: center;
