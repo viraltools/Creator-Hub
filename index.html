@@ -1,185 +1,184 @@
 <!DOCTYPE html>
-<html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>TruthScan AI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creator Hub Pro - Full SaaS</title>
 
 <style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: radial-gradient(circle at top, #0f172a, #020617);
-    color: white;
-    text-align: center;
-    overflow-x: hidden;
-  }
 
-  /* floating glow background */
-  .bg-glow {
-    position: fixed;
-    width: 400px;
-    height: 400px;
-    background: #38bdf8;
-    filter: blur(150px);
-    opacity: 0.15;
-    top: -100px;
-    left: -100px;
-    z-index: 0;
-  }
+body{
+margin:0;
+font-family:Arial;
+background:#050816;
+color:white;
+}
 
-  h1 {
-    font-size: 45px;
-    margin-top: 60px;
-    background: linear-gradient(90deg, #38bdf8, #22c55e);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: glow 2s infinite alternate;
-  }
+.hero{
+text-align:center;
+padding:60px 20px;
+background:radial-gradient(circle,#0f172a,#020617);
+}
 
-  @keyframes glow {
-    from { transform: scale(1); }
-    to { transform: scale(1.05); }
-  }
+.hero h1{
+font-size:55px;
+background:linear-gradient(90deg,#38bdf8,#22c55e);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-  .tagline {
-    opacity: 0.7;
-    margin-bottom: 20px;
-  }
+.container{
+max-width:1200px;
+margin:auto;
+padding:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}
 
-  .card {
-    position: relative;
-    z-index: 1;
-    width: 90%;
-    max-width: 650px;
-    margin: auto;
-    margin-top: 30px;
-    padding: 25px;
-    background: rgba(30, 41, 59, 0.7);
-    border-radius: 20px;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 0 25px rgba(56,189,248,0.2);
-  }
+.card{
+background:rgba(255,255,255,0.05);
+padding:20px;
+border-radius:15px;
+border:1px solid rgba(255,255,255,0.1);
+transition:0.3s;
+}
 
-  textarea {
-    width: 100%;
-    height: 150px;
-    border-radius: 12px;
-    border: none;
-    padding: 15px;
-    font-size: 16px;
-    background: #0b1220;
-    color: white;
-    outline: none;
-  }
+.card:hover{
+transform:translateY(-5px);
+border-color:#38bdf8;
+}
 
-  button {
-    margin-top: 15px;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 12px;
-    background: linear-gradient(90deg, #22c55e, #38bdf8);
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
+h2{
+margin-bottom:10px;
+font-size:20px;
+}
 
-  button:hover {
-    transform: scale(1.07);
-    box-shadow: 0 0 20px rgba(56,189,248,0.4);
-  }
+.site{
+margin-top:8px;
+padding:10px;
+border-radius:8px;
+background:#0f172a;
+cursor:pointer;
+border:1px solid rgba(255,255,255,0.1);
+transition:0.2s;
+font-size:14px;
+}
 
-  .result {
-    margin-top: 25px;
-    padding: 20px;
-    background: rgba(15, 23, 42, 0.8);
-    border-radius: 15px;
-    text-align: left;
-  }
-
-  .badge {
-    display: inline-block;
-    padding: 5px 12px;
-    background: #1d4ed8;
-    border-radius: 20px;
-    font-size: 12px;
-    margin-top: 10px;
-  }
-
-  .score {
-    font-size: 22px;
-    font-weight: bold;
-  }
-
-  .green { color: #22c55e; }
-  .yellow { color: #facc15; }
-  .red { color: #ef4444; }
+.site:hover{
+background:#38bdf8;
+color:black;
+}
 
 </style>
 </head>
 
 <body>
 
-<div class="bg-glow"></div>
+<div class="hero">
+<h1>🚀 Creator Hub Pro</h1>
+<p>All-in-One AI Creator SaaS Platform</p>
+</div>
 
-<h1>🧠 TruthScan AI</h1>
-<p class="tagline">Detect emotional truth inside messages instantly</p>
-<div class="badge">⚡ Viral AI Tool</div>
+<div class="container">
 
+<!-- VIDEO GENERATOR -->
 <div class="card">
+<h2>🎬 AI Video Generator</h2>
+<div class="site" onclick="openLink('https://pixverse.ai/')">PixVerse AI</div>
+<div class="site" onclick="openLink('https://lumalabs.ai/dream-machine')">Luma Dream Machine</div>
+<div class="site" onclick="openLink('https://pika.art/')">Pika Labs</div>
+<div class="site" onclick="openLink('https://runwayml.com/')">Runway ML</div>
+<div class="site" onclick="openLink('https://hailuoai.video/')">Hailuo AI</div>
+</div>
 
-  <textarea id="text" placeholder="Paste chat message here..."></textarea>
+<!-- IMAGE GENERATOR -->
+<div class="card">
+<h2>🖼️ AI Image Generator</h2>
+<div class="site" onclick="openLink('https://leonardo.ai/')">Leonardo AI</div>
+<div class="site" onclick="openLink('https://www.mage.space/')">Mage Space</div>
+<div class="site" onclick="openLink('https://playground.com/')">Playground AI</div>
+<div class="site" onclick="openLink('https://ideogram.ai/')">Ideogram AI</div>
+<div class="site" onclick="openLink('https://www.bing.com/images/create')">Bing Image Creator</div>
+</div>
 
-  <br>
-  <button onclick="analyze()">Scan Message</button>
+<!-- FREE MUSIC -->
+<div class="card">
+<h2>🎵 Free Music</h2>
+<div class="site" onclick="openLink('https://pixabay.com/music/')">Pixabay Music</div>
+<div class="site" onclick="openLink('https://mixkit.co/free-stock-music/')">Mixkit Music</div>
+<div class="site" onclick="openLink('https://www.youtube.com/@NoCopyrightSounds')">No Copyright Sounds</div>
+<div class="site" onclick="openLink('https://uppbeat.io/')">Uppbeat</div>
+<div class="site" onclick="openLink('https://incompetech.com/')">Incompetech</div>
+</div>
 
-  <div class="result" id="result">
-    Result will appear here...
-  </div>
+<!-- VIDEO DOWNLOADER -->
+<div class="card">
+<h2>⬇️ Video Downloader</h2>
+<div class="site" onclick="openLink('https://ssyoutube.com/')">YouTube Downloader</div>
+<div class="site" onclick="openLink('https://snaptik.app/')">TikTok Downloader</div>
+<div class="site" onclick="openLink('https://snapinsta.app/')">Instagram Downloader</div>
+<div class="site" onclick="openLink('https://fdown.net/')">Facebook Downloader</div>
+<div class="site" onclick="openLink('https://savefrom.net/')">SaveFrom</div>
+</div>
+
+<!-- SCRIPT WRITER -->
+<div class="card">
+<h2>📝 Script Writer Tools</h2>
+<div class="site" onclick="openLink('https://chat.openai.com/')">ChatGPT</div>
+<div class="site" onclick="openLink('https://www.copy.ai/')">Copy.ai</div>
+<div class="site" onclick="openLink('https://writesonic.com/')">Writesonic</div>
+<div class="site" onclick="openLink('https://rytr.me/')">Rytr</div>
+<div class="site" onclick="openLink('https://jasper.ai/')">Jasper AI</div>
+</div>
+
+<!-- HASHTAG GENERATOR -->
+<div class="card">
+<h2>#️⃣ Hashtag Generator</h2>
+<div class="site" onclick="openLink('https://best-hashtags.com/')">Best Hashtags</div>
+<div class="site" onclick="openLink('https://inflact.com/tools/instagram-hashtag-generator/')">Inflact</div>
+<div class="site" onclick="openLink('https://all-hashtag.com/')">All Hashtag</div>
+<div class="site" onclick="openLink('https://seekmetrics.com/hashtag-generator')">SeekMetrics</div>
+<div class="site" onclick="openLink('https://hashtagmark.com/')">HashtagMark</div>
+</div>
+
+<!-- DESCRIPTION GENERATOR -->
+<div class="card">
+<h2>📄 Description Generator</h2>
+<div class="site" onclick="openLink('https://chat.openai.com/')">ChatGPT</div>
+<div class="site" onclick="openLink('https://copy.ai/')">Copy.ai</div>
+<div class="site" onclick="openLink('https://writesonic.com/')">Writesonic</div>
+<div class="site" onclick="openLink('https://jasper.ai/')">Jasper AI</div>
+<div class="site" onclick="openLink('https://rytr.me/')">Rytr</div>
+</div>
+
+<!-- SEO TOOLS -->
+<div class="card">
+<h2>📈 SEO Tools</h2>
+<div class="site" onclick="openLink('https://ahrefs.com/keyword-generator')">Ahrefs</div>
+<div class="site" onclick="openLink('https://neilpatel.com/ubersuggest/')">Ubersuggest</div>
+<div class="site" onclick="openLink('https://keywordtool.io/')">Keyword Tool</div>
+<div class="site" onclick="openLink('https://trends.google.com/')">Google Trends</div>
+<div class="site" onclick="openLink('https://answerthepublic.com/')">Answer The Public</div>
+</div>
+
+<!-- THUMBNAIL MAKER -->
+<div class="card">
+<h2>🔥 Thumbnail Tools</h2>
+<div class="site" onclick="openLink('https://www.canva.com/')">Canva</div>
+<div class="site" onclick="openLink('https://www.photopea.com/')">Photopea</div>
+<div class="site" onclick="openLink('https://www.fotor.com/')">Fotor</div>
+<div class="site" onclick="openLink('https://www.adobe.com/express/')">Adobe Express</div>
+<div class="site" onclick="openLink('https://www.pixelied.com/')">Pixelied</div>
+</div>
 
 </div>
 
 <script>
-function analyze() {
-
-  let text = document.getElementById("text").value.toLowerCase();
-  let score = 85;
-
-  if (text.includes("sorry")) score -= 10;
-  if (text.includes("busy")) score -= 15;
-  if (text.includes("maybe")) score -= 10;
-  if (text.includes("trust me")) score -= 20;
-  if (text.includes("later")) score -= 10;
-  if (text.includes("i swear")) score -= 25;
-
-  let status = "";
-  let color = "";
-
-  if (score > 70) {
-    status = "Likely Honest ✅";
-    color = "green";
-  } else if (score > 40) {
-    status = "Suspicious 🤔";
-    color = "yellow";
-  } else {
-    status = "High Chance of Dishonesty 🚩";
-    color = "red";
-  }
-
-  document.getElementById("result").innerHTML = `
-    <div class="score ${color}">
-      Truth Score: ${score}%
-    </div>
-    <p><b>AI Analysis:</b> ${status}</p>
-    <p><b>Insight:</b> Emotional inconsistency detected in message pattern.</p>
-    <p><b>Suggested Reply:</b> "Just be honest, I respect the truth more."</p>
-  `;
+function openLink(url){
+window.open(url,"_blank");
 }
 </script>
 
 </body>
-</html>
-  
 </html>
