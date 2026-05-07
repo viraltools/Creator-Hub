@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Creator Hub Pro - Neon AI Tools Dashboard with 12 tools and 5 top resources each." />
+  <meta name="description" content="Creator Hub Pro - Neon AI Tools Dashboard with 12 tools and 5 resources each." />
   <title>Creator Hub Pro - Neon AI Dashboard</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,14 +22,10 @@
       overflow-x:hidden;
     }
 
-    /* NEON BACKGROUND */
     body::before{
       content:"";
       position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
+      inset:0;
       background:
         radial-gradient(circle at 20% 20%, rgba(124,58,237,0.25), transparent 40%),
         radial-gradient(circle at 80% 30%, rgba(6,182,212,0.25), transparent 40%),
@@ -51,11 +47,9 @@
 
     h1{
       font-size:56px;
-      letter-spacing:1px;
       background:linear-gradient(90deg,#7c3aed,#06b6d4,#ec4899);
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
-      text-shadow:0 0 20px rgba(124,58,237,0.3);
     }
 
     .subtitle{
@@ -63,8 +57,7 @@
       color:#cbd5e1;
       font-size:16px;
       max-width:800px;
-      margin-left:auto;
-      margin-right:auto;
+      margin:auto;
     }
 
     .tools{
@@ -79,74 +72,31 @@
       border:1px solid rgba(124,58,237,0.3);
       padding:18px;
       border-radius:16px;
-      cursor:pointer;
-      transition:0.3s;
       box-shadow:0 0 20px rgba(124,58,237,0.08);
-      position:relative;
-      overflow:hidden;
-    }
-
-    .card::before{
-      content:"";
-      position:absolute;
-      top:-50%;
-      left:-50%;
-      width:200%;
-      height:200%;
-      background:linear-gradient(45deg,transparent,rgba(124,58,237,0.1),transparent);
-      transform:rotate(25deg);
+      transition:0.3s;
     }
 
     .card:hover{
       transform:translateY(-6px);
-      box-shadow:0 0 25px rgba(6,182,212,0.25);
       border-color:#06b6d4;
+      box-shadow:0 0 25px rgba(6,182,212,0.25);
     }
 
-    /* MODAL */
-    .modal{
-      display:none;
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      background:rgba(0,0,0,0.85);
-      justify-content:center;
-      align-items:center;
-    }
-
-    .modal-content{
-      background:#0b0b1a;
-      border:1px solid rgba(124,58,237,0.4);
-      padding:20px;
-      border-radius:16px;
-      width:90%;
-      max-width:520px;
-      box-shadow:0 0 30px rgba(124,58,237,0.25);
-    }
-
-    .close{
-      float:right;
-      cursor:pointer;
-      font-size:22px;
+    .title{
+      font-weight:600;
+      margin-bottom:10px;
       color:#fff;
     }
 
-    h3{
-      margin-bottom:10px;
-      color:#06b6d4;
-    }
-
-    a.link{
+    .links a{
       display:block;
-      margin:10px 0;
       color:#60a5fa;
+      font-size:13px;
+      margin:6px 0;
       text-decoration:none;
-      transition:0.2s;
     }
 
-    a.link:hover{
+    .links a:hover{
       color:#ec4899;
       text-shadow:0 0 10px rgba(236,72,153,0.5);
     }
@@ -159,73 +109,80 @@
 
   <header>
     <h1>Creator Hub Pro</h1>
-    <p class="subtitle">Neon AI Creator Dashboard - 12 tools with top 5 resources each</p>
+    <p class="subtitle">Neon AI Dashboard - 12 tools with 5 resources each always visible</p>
   </header>
 
   <div class="tools">
-    <div class="card" onclick="openTool('caption')">AI Caption Generator</div>
-    <div class="card" onclick="openTool('thumbnail')">AI Thumbnail Generator</div>
-    <div class="card" onclick="openTool('logo')">AI Logo Designer</div>
-    <div class="card" onclick="openTool('seo')">SEO Optimization Tools</div>
-    <div class="card" onclick="openTool('description')">Description Generator</div>
-    <div class="card" onclick="openTool('converter')">File Converter</div>
-    <div class="card" onclick="openTool('video')">AI Video Generator</div>
-    <div class="card" onclick="openTool('image')">AI Image Generator</div>
-    <div class="card" onclick="openTool('script')">Script Writer</div>
-    <div class="card" onclick="openTool('hashtag')">Hashtag Generator</div>
-    <div class="card" onclick="openTool('music')">Free Music Tools</div>
-    <div class="card" onclick="openTool('downloader')">Video Downloader</div>
+
+    <div class="card">
+      <div class="title">AI Caption Generator</div>
+      <div class="links">
+        <a href="https://chatgpt.com" target="_blank">ChatGPT</a>
+        <a href="https://copy.ai" target="_blank">Copy.ai</a>
+        <a href="https://writesonic.com" target="_blank">Writesonic</a>
+        <a href="https://jasper.ai" target="_blank">Jasper AI</a>
+        <a href="https://rytr.me" target="_blank">Rytr</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="title">AI Thumbnail Generator</div>
+      <div class="links">
+        <a href="https://canva.com" target="_blank">Canva</a>
+        <a href="https://adobe.com/express" target="_blank">Adobe Express</a>
+        <a href="https://fotor.com" target="_blank">Fotor</a>
+        <a href="https://pixlr.com" target="_blank">Pixlr</a>
+        <a href="https://picmonkey.com" target="_blank">PicMonkey</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="title">AI Logo Designer</div>
+      <div class="links">
+        <a href="https://canva.com/logo-maker" target="_blank">Canva Logo</a>
+        <a href="https://looka.com" target="_blank">Looka</a>
+        <a href="https://hatchful.shopify.com" target="_blank">Hatchful</a>
+        <a href="https://tailorbrands.com" target="_blank">Tailor Brands</a>
+        <a href="https://brandcrowd.com" target="_blank">BrandCrowd</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="title">SEO Tools</div>
+      <div class="links">
+        <a href="https://semrush.com" target="_blank">Semrush</a>
+        <a href="https://ahrefs.com" target="_blank">Ahrefs</a>
+        <a href="https://moz.com" target="_blank">Moz</a>
+        <a href="https://ubersuggest.com" target="_blank">Ubersuggest</a>
+        <a href="https://search.google.com/search-console" target="_blank">Google SEO</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="title">Description Generator</div>
+      <div class="links">
+        <a href="https://chatgpt.com" target="_blank">ChatGPT</a>
+        <a href="https://copy.ai" target="_blank">Copy.ai</a>
+        <a href="https://writesonic.com" target="_blank">Writesonic</a>
+        <a href="https://rytr.me" target="_blank">Rytr</a>
+        <a href="https://jasper.ai" target="_blank">Jasper AI</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="title">File Converter</div>
+      <div class="links">
+        <a href="https://ilovepdf.com" target="_blank">iLovePDF</a>
+        <a href="https://smallpdf.com" target="_blank">SmallPDF</a>
+        <a href="https://cloudconvert.com" target="_blank">CloudConvert</a>
+        <a href="https://convertio.co" target="_blank">Convertio</a>
+        <a href="https://zamzar.com" target="_blank">Zamzar</a>
+      </div>
+    </div>
+
   </div>
 
 </div>
-
-<!-- MODAL -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">×</span>
-    <h3 id="title"></h3>
-    <div id="links"></div>
-  </div>
-</div>
-
-<script>
-
-const data = {
-  caption:["https://chatgpt.com","https://copy.ai","https://writesonic.com","https://jasper.ai","https://rytr.me"],
-  thumbnail:["https://canva.com","https://adobe.com/express","https://fotor.com","https://pixlr.com","https://picmonkey.com"],
-  logo:["https://canva.com/logo-maker","https://looka.com","https://hatchful.shopify.com","https://tailorbrands.com","https://brandcrowd.com"],
-  seo:["https://semrush.com","https://ahrefs.com","https://moz.com","https://ubersuggest.com","https://google.com/webmasters"],
-  description:["https://chatgpt.com","https://copy.ai","https://writesonic.com","https://rytr.me","https://jasper.ai"],
-  converter:["https://ilovepdf.com","https://smallpdf.com","https://cloudconvert.com","https://convertio.co","https://zamzar.com"],
-  video:["https://runwayml.com","https://pika.art","https://luma.ai","https://kaiber.ai","https://pictory.ai"],
-  image:["https://leonardo.ai","https://midjourney.com","https://canva.com","https://playgroundai.com","https://bing.com/images/create"],
-  script:["https://chatgpt.com","https://copy.ai","https://writesonic.com","https://rytr.me","https://jasper.ai"],
-  hashtag:["https://inflact.com","https://best-hashtags.com","https://all-hashtag.com","https://seekmetrics.com","https://hashtagmark.com"],
-  music:["https://pixabay.com/music","https://mixkit.co","https://uppbeat.io","https://incompetech.com","https://freesound.org"],
-  downloader:["https://savefrom.net","https://ssyoutube.com","https://snaptik.app","https://instasave.website","https://yt5s.com"]
-};
-
-function openTool(t){
-  document.getElementById('modal').style.display='flex';
-  document.getElementById('title').innerText=t.toUpperCase();
-
-  let html="";
-  data[t].forEach(l=>{
-    html+=`<a class='link' href='${l}' target='_blank'>${l}</a>`;
-  });
-
-  document.getElementById('links').innerHTML=html;
-}
-
-function closeModal(){
-  document.getElementById('modal').style.display='none';
-}
-
-window.onclick=function(e){
-  if(e.target==document.getElementById('modal')) closeModal();
-}
-
-</script>
 
 </body>
 </html>
