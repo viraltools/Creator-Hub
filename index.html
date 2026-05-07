@@ -1,643 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <style>
-    html { scroll-behavior: smooth; }
-    a { cursor: pointer; }
-  </style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Creator Hub Pro - All-in-One AI Creator SaaS Platform with AI video generators, AI image tools, script writers, music resources, and hashtag generators." />
-  <meta name="keywords" content="AI tools, AI video generator, AI image generator, content creator tools, YouTube tools, AI SaaS platform, hashtag generator" />
-  <meta name="author" content="Creator Hub Pro" />
-  <title>Creator Hub Pro | AI Creator SaaS Platform</title>
+  <meta name="description" content="All-in-One AI Creator Dashboard - Generate captions, thumbnails, logos, SEO content, and convert files instantly." />
+  <title>AI Creator Dashboard</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+
+    body{
+      background:#050816;
+      color:#fff;
+      overflow-x:hidden;
     }
 
-    body {
-      scroll-behavior: smooth;
-      background: #050816;
-      color: #fff;
-      overflow-x: hidden;
+    .container{
+      width:92%;
+      max-width:1200px;
+      margin:auto;
+      padding:30px 0;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(139,92,246,0.25), transparent 70%);
-      top: -200px;
-      left: -150px;
-      z-index: -1;
+    header{
+      text-align:center;
+      padding:20px 0;
     }
 
-    body::after {
-      content: "";
-      position: fixed;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(34,211,238,0.18), transparent 70%);
-      bottom: -200px;
-      right: -100px;
-      z-index: -1;
+    h1{
+      font-size:42px;
+      background:linear-gradient(90deg,#7c3aed,#06b6d4,#ec4899);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
     }
 
-    .container {
-      width: 92%;
-      max-width: 1300px;
-      margin: auto;
+    .subtitle{
+      color:#cbd5e1;
+      margin-top:10px;
+      font-size:16px;
     }
 
-    header {
-      padding: 45px 0 20px;
-      text-align: center;
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:18px;
+      margin-top:30px;
     }
 
-    .badge {
-      display: inline-block;
-      padding: 10px 24px;
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(10px);
-      margin-bottom: 25px;
-      font-size: 14px;
-      color: #8be9fd;
+    .card{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      padding:18px;
+      border-radius:16px;
+      cursor:pointer;
+      transition:0.3s;
     }
 
-    h1 {
-      font-size: 58px;
-      font-weight: 800;
-      background: linear-gradient(90deg, #6ee7ff, #a855f7, #ff4ecd);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 18px;
-      line-height: 1.1;
+    .card:hover{
+      transform:translateY(-5px);
+      background:rgba(124,58,237,0.15);
     }
 
-    .subtitle {
-      font-size: 18px;
-      color: #cbd5e1;
-      max-width: 850px;
-      margin: auto;
-      line-height: 1.7;
+    .card h3{
+      font-size:18px;
+      margin-bottom:8px;
     }
 
-    .hero-buttons {
-      margin-top: 40px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
+    /* MODAL */
+    .modal{
+      display:none;
+      position:fixed;
+      top:0;left:0;
+      width:100%;height:100%;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
     }
 
-    .btn {
-      padding: 16px 34px;
-      border-radius: 14px;
-      font-size: 16px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.3s ease;
+    .modal-content{
+      background:#0f172a;
+      padding:20px;
+      border-radius:14px;
+      width:90%;
+      max-width:500px;
+      border:1px solid rgba(255,255,255,0.1);
     }
 
-    .btn-primary {
-      background: linear-gradient(90deg, #7c3aed, #ec4899);
-      color: white;
-      box-shadow: 0 0 25px rgba(168,85,247,0.5);
+    .close{
+      float:right;
+      cursor:pointer;
+      font-size:20px;
     }
 
-    .btn-primary:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 35px rgba(236,72,153,0.7);
+    input,textarea,select{
+      width:100%;
+      margin-top:10px;
+      padding:10px;
+      border-radius:8px;
+      border:none;
+      outline:none;
     }
 
-    .btn-secondary {
-      border: 1px solid rgba(255,255,255,0.15);
-      color: #fff;
-      background: rgba(255,255,255,0.04);
-      backdrop-filter: blur(8px);
+    button{
+      margin-top:12px;
+      padding:10px;
+      width:100%;
+      border:none;
+      border-radius:8px;
+      background:linear-gradient(90deg,#7c3aed,#ec4899);
+      color:white;
+      cursor:pointer;
+      font-weight:600;
     }
 
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.08);
-      transform: translateY(-4px);
-    }
-
-    .stats {
-      margin-top: 35px;
-      display: flex;
-      justify-content: center;
-      gap: 35px;
-      flex-wrap: wrap;
-    }
-
-    .stat-box {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 18px 28px;
-      border-radius: 18px;
-      min-width: 180px;
-      backdrop-filter: blur(10px);
-    }
-
-    .stat-box h3 {
-      font-size: 28px;
-      color: #6ee7ff;
-      margin-bottom: 5px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin: 45px 0 12px;
-      font-size: 34px;
-      font-weight: 700;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      color: #94a3b8;
-      margin-bottom: 28px;
-      font-size: 18px;
-    }
-
-    .tools-grid {
-      display: grid;
-      align-items: stretch;
-      margin-top: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 28px;
-      margin-bottom: 80px;
-    }
-
-    .tool-card {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background: linear-gradient(180deg, rgba(15,23,42,0.95), rgba(10,15,30,0.95));
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 24px;
-      padding: 22px;
-      position: relative;
-      overflow: hidden;
-      transition: 0.35s ease;
-      backdrop-filter: blur(16px);
-    }
-
-    .tool-card::before {
-      pointer-events: none;
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(168,85,247,0.15), transparent, rgba(34,211,238,0.12));
-      opacity: 0;
-      transition: 0.4s ease;
-    }
-
-    .tool-card:hover::before {
-      opacity: 1;
-    }
-
-    .tool-card:hover {
-      transform: translateY(-10px);
-      border-color: rgba(168,85,247,0.45);
-      box-shadow: 0 0 35px rgba(168,85,247,0.18);
-    }
-
-    .tool-header {
-      min-height: 90px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 22px;
-    }
-
-    .tool-title {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-size: 24px;
-      font-weight: 700;
-    }
-
-    .tool-icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      background: linear-gradient(135deg, #7c3aed, #06b6d4);
-      box-shadow: 0 0 25px rgba(124,58,237,0.4);
-    }
-
-    .new-badge {
-      background: linear-gradient(90deg, #ff4ecd, #7c3aed);
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .tool-list {
-      flex: 1;
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-bottom: 25px;
-    }
-
-    .tool-list li {
-      padding: 14px 18px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.05);
-      transition: 0.3s ease;
-      cursor: pointer;
-    }
-
-    .tool-list li:hover {
-      background: rgba(168,85,247,0.15);
-      transform: translateX(6px);
-    }
-
-    .explore-btn {
-      position: relative;
-      z-index: 2;
-      margin-top: auto;
-      width: 100%;
-      display: inline-block;
-      text-align: center;
-      text-decoration: none;
-      padding: 15px;
-      border-radius: 14px;
-      font-weight: 600;
-      color: white;
-      background: linear-gradient(90deg, #7c3aed, #ec4899);
-      transition: 0.3s ease;
-    }
-
-    .explore-btn:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 25px rgba(236,72,153,0.5);
-    }
-
-    .seo-section {
-      margin: 100px 0;
-      text-align: center;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      padding: 60px 30px;
-      border-radius: 30px;
-    }
-
-    .seo-section h2 {
-      font-size: 34px;
-      margin-bottom: 18px;
-    }
-
-    .seo-section p {
-      max-width: 850px;
-      margin: auto;
-      color: #cbd5e1;
-      line-height: 1.8;
-      font-size: 18px;
-    }
-
-    footer {
-      padding: 40px 0 60px;
-      text-align: center;
-      color: #94a3b8;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      margin-top: 40px;
-    }
-
-    @media(max-width: 768px) {
-      h1 {
-        font-size: 40px;
-      }
-
-      .subtitle {
-        font-size: 17px;
-      }
-
-      .section-title {
-        font-size: 34px;
-      }
-
-      .tool-title {
-        font-size: 20px;
-      }
+    .result{
+      margin-top:10px;
+      font-size:14px;
+      color:#93c5fd;
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <header>
-      <div class="badge">🚀 Trusted by 10K+ Content Creators</div>
+  <header>
+    <h1>AI Creator Dashboard</h1>
+    <div class="subtitle">Generate captions, thumbnails, logos, SEO text & convert files instantly</div>
+  </header>
 
-      <h1>Creator Hub Pro</h1>
+  <div class="grid">
 
-      <p class="subtitle">
-        The ultimate AI Creator SaaS Platform for YouTubers, TikTok creators, bloggers, designers, and digital marketers. Generate videos, images, scripts, hashtags, and more with powerful AI tools.
-      </p>
+    <div class="card" onclick="openTool('caption')">
+      <h3>💬 Caption Generator</h3>
+      <p>Create viral captions instantly</p>
+    </div>
 
-      <div class="hero-buttons">
-        <a href="#tools" class="btn btn-primary">Explore AI Tools</a>
-        <a href="#seo" class="btn btn-secondary">Learn More</a>
-      </div>
+    <div class="card" onclick="openTool('thumbnail')">
+      <h3>🎨 Thumbnail Generator</h3>
+      <p>Make clickbait thumbnails</p>
+    </div>
 
-      <div class="stats">
-        <div class="stat-box">
-          <h3>50+</h3>
-          <p>AI Creator Tools</p>
-        </div>
+    <div class="card" onclick="openTool('logo')">
+      <h3>🎯 Logo Designer</h3>
+      <p>Build modern brand logos</p>
+    </div>
 
-        <div class="stat-box">
-          <h3>100K+</h3>
-          <p>Monthly Users</p>
-        </div>
+    <div class="card" onclick="openTool('seo')">
+      <h3>📈 SEO Generator</h3>
+      <p>Optimize content for ranking</p>
+    </div>
 
-        <div class="stat-box">
-          <h3>24/7</h3>
-          <p>Instant AI Access</p>
-        </div>
-      </div>
-    </header>
+    <div class="card" onclick="openTool('description')">
+      <h3>📝 Description Generator</h3>
+      <p>Write YouTube & blog SEO text</p>
+    </div>
 
-    <section id="tools">
-      <h2 class="section-title">Explore Powerful AI Creator Tools</h2>
-      <p class="section-subtitle">Everything you need to grow your content creation business in one place.</p>
-
-      <div class="tools-grid">
-
-        <div class="tool-card">
-          <div class="tool-header">
-            <div class="tool-title">
-              <div class="tool-icon">📝</div>
-              AI Description Generator
-            </div>
-            <div class="new-badge">SEO</div>
-          </div>
-
-          <ul class="tool-list">
-            <li>YouTube Description Generator</li>
-            <li>TikTok Caption Writer</li>
-            <li>Instagram Caption AI</li>
-            <li>SEO Meta Description Tool</li>
-            <li>AI Product Description Writer</li>
-          </ul>
-
-          <a href="#tools" class="explore-btn">Generate Descriptions</a>
-        </div>
-
-        <div class="tool-card">
-          <div class="tool-header">
-            <div class="tool-title">
-              <div class="tool-icon">🎨</div>
-              AI Thumbnail Generator
-            </div>
-            <div class="new-badge">TRENDING</div>
-          </div>
-
-          <ul class="tool-list">
-            <li>YouTube Thumbnail Maker</li>
-            <li>Clickbait Thumbnail AI</li>
-            <li>Gaming Thumbnail Creator</li>
-            <li>Viral Thumbnail Templates</li>
-            <li>AI Thumbnail Background Remover</li>
-          </ul>
-
-          <a href="#tools" class="explore-btn">Create Thumbnails</a>
-        </div>
-
-        <div class="tool-card">
-          <div class="tool-header">
-            <div class="tool-title">
-              <div class="tool-icon">📈</div>
-              SEO Optimization Tools
-            </div>
-            <div class="new-badge">RANK #1</div>
-          </div>
-
-          <ul class="tool-list">
-            <li>YouTube SEO Analyzer</li>
-            <li>Keyword Research AI</li>
-            <li>Meta Tags Generator</li>
-            <li>AI SEO Blog Writer</li>
-            <li>Google Ranking Optimizer</li>
-          </ul>
-
-          <a href="#tools" class="explore-btn">Boost SEO Ranking</a>
-        </div>
-
-        <div class="tool-card">
-          <div class="tool-header">
-            <div class="tool-title">
-              <div class="tool-icon">🎬</div>
-              AI Video Generator
-            </div>
-            <div class="new-badge">NEW</div>
-          </div>
-
-          <ul class="tool-list">
-            <li>PixVerse AI</li>
-            <li>Luma Dream Machine</li>
-            <li>Pika Labs</li>
-            <li>Runway ML</li>
-            <li>Hailuo AI</li>
-          </ul>
-
-          <a href="#tools" class="explore-btn">Explore Video Tools</a>
-        </div>
-
-        <div class="tool-card">
-          <div class="tool-header">
-            <div class="tool-title">
-              <div class="tool-icon">🖼️</div>
-              AI Image Generator
-            </div>
-            <div class="new-badge">TRENDING</div>
-          </div>
-
-          <ul class="tool-list">
-            <li>Leonardo AI</li>
-            <li>Mage Space</li>
-            <li>Playground AI</li>
-            <li>Ideogram AI</li>
-            <li>Bing Image Creator</li>
-          </ul>
-
-          <a href="#tools" class="explore-btn">Explore Image Tools</a>
-        </div>
-
-        <div class="tool-card">
-          <div class="tool-header">
-            <div class="tool-title">
-              <div class="tool-icon">🎵</div>
-              Free Music
-            </div>
-            <div class="new-badge">FREE</div>
-          </div>
-
-          <ul class="tool-list">
-            <li>Pixabay Music</li>
-            <li>Mixkit Music</li>
-            <li>No Copyright Sounds</li>
-            <li>Uppbeat</li>
-            <li>Incompetech</li>
-          </ul>
-
-          <a href="#tools" class="explore-btn">Explore Music</a>
-        </div>
-
-        <div class="tool-card">
-          <div class="tool-header">
-            <div class="tool-title">
-              <div class="tool-icon">⬇️</div>
-              Video Downloader
-            </div>
-            <div class="new-badge">HOT</div>
-          </div>
-
-          <ul class="tool-list">
-            <li>YouTube Downloader</li>
-            <li>TikTok Downloader</li>
-            <li>Instagram Downloader</li>
-            <li>Facebook Downloader</li>
-            <li>SaveFrom</li>
-          </ul>
-
-          <a href="#tools" class="explore-btn">Explore Downloaders</a>
-        </div>
-
-        <div class="tool-card">
-          <div class="tool-header">
-            <div class="tool-title">
-              <div class="tool-icon">✍️</div>
-              Script Writer Tools
-            </div>
-            <div class="new-badge">AI</div>
-          </div>
-
-          <ul class="tool-list">
-            <li>ChatGPT</li>
-            <li>Copy.ai</li>
-            <li>Writesonic</li>
-            <li>Rytr</li>
-            <li>Jasper AI</li>
-          </ul>
-
-          <a href="#tools" class="explore-btn">Explore Writing Tools</a>
-        </div>
-
-        <div class="tool-card">
-          <div class="tool-header">
-            <div class="tool-title">
-              <div class="tool-icon">💬</div>
-              AI Caption Generator
-            </div>
-            <div class="new-badge">VIRAL</div>
-          </div>
-
-          <ul class="tool-list">
-            <li>Instagram Caption AI</li>
-            <li>TikTok Viral Captions</li>
-            <li>YouTube Shorts Captions</li>
-            <li>LinkedIn Caption Writer</li>
-            <li>Emoji Caption Generator</li>
-          </ul>
-
-          <a href="#tools" class="explore-btn">Generate Captions</a>
-        </div>
-
-        <div class="tool-card">
-          <div class="tool-header">
-            <div class="tool-title">
-              <div class="tool-icon">🎯</div>
-              AI Logo Designer
-            </div>
-            <div class="new-badge">BRAND</div>
-          </div>
-
-          <ul class="tool-list">
-            <li>Minimal Logo Maker</li>
-            <li>Gaming Logo AI</li>
-            <li>3D Brand Logos</li>
-            <li>YouTube Channel Logos</li>
-            <li>Business Identity Creator</li>
-          </ul>
-
-          <a href="#tools" class="explore-btn">Create Logos</a>
-        </div>
-
-        <div class="tool-card">
-          <div class="tool-header">
-            <div class="tool-title">
-              <div class="tool-icon">🔄</div>
-              AI Converter Tools
-            </div>
-            <div class="new-badge">FAST</div>
-          </div>
-
-          <ul class="tool-list">
-            <li>Video to MP3 Converter</li>
-            <li>Image Format Converter</li>
-            <li>PDF to Word AI</li>
-            <li>Text to Speech Converter</li>
-            <li>Audio to Text Generator</li>
-          </ul>
-
-          <a href="#tools" class="explore-btn">Use Converter Tools</a>
-        </div>
-
-        <div class="tool-card">
-          <div class="tool-header">
-            <div class="tool-title">
-              <div class="tool-icon">#️⃣</div>
-              Hashtag Generator
-            </div>
-            <div class="new-badge">SEO</div>
-          </div>
-
-          <ul class="tool-list">
-            <li>Best Hashtags</li>
-            <li>Inflact</li>
-            <li>All Hashtag</li>
-            <li>SeekMetrics</li>
-            <li>HashtagMark</li>
-          </ul>
-
-          <a href="#tools" class="explore-btn">Explore Hashtags</a>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="seo-section" id="seo">
-      <h2>Best AI Creator Platform for Content Creators</h2>
-      <p>
-        Creator Hub Pro helps creators discover the best AI tools for YouTube automation, TikTok content, Instagram growth, blogging, SEO optimization, AI image generation, script writing, and royalty-free music resources. This SEO-friendly SaaS platform is designed to rank higher on search engines while delivering a premium user experience.
-      </p>
-    </section>
-
-    <footer>
-      <p>© 2026 Creator Hub Pro • All Rights Reserved • Built for Modern Creators</p>
-    </footer>
+    <div class="card" onclick="openTool('converter')">
+      <h3>🔄 File Converter</h3>
+      <p>Convert images, video & text</p>
+    </div>
 
   </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    <h3 id="toolTitle">Tool</h3>
+
+    <textarea id="input" placeholder="Enter your prompt..."></textarea>
+
+    <button onclick="generate()">Generate</button>
+
+    <div class="result" id="result"></div>
+  </div>
+</div>
+
+<script>
+let currentTool = "";
+
+function openTool(tool){
+  currentTool = tool;
+  document.getElementById('modal').style.display='flex';
+  document.getElementById('result').innerText='';
+  document.getElementById('input').value='';
+
+  document.getElementById('toolTitle').innerText = tool.toUpperCase();
+}
+
+function closeModal(){
+  document.getElementById('modal').style.display='none';
+}
+
+function generate(){
+  let text = document.getElementById('input').value;
+
+  if(!text){
+    alert("Please enter text");
+    return;
+  }
+
+  let output = "";
+
+  if(currentTool==='caption') output = "🔥 Viral Caption: " + text + " #trending #viral";
+  if(currentTool==='thumbnail') output = "🎨 Thumbnail Idea: Bold text + high contrast + emotional face";
+  if(currentTool==='logo') output = "🎯 Logo Concept: Minimal icon + modern typography + neon style";
+  if(currentTool==='seo') output = "📈 SEO Optimized: " + text + " with high ranking keywords";
+  if(currentTool==='description') output = "📝 SEO Description: " + text + " | optimized for search";
+  if(currentTool==='converter') output = "🔄 Converted Output ready (demo mode)";
+
+  document.getElementById('result').innerText = output;
+}
+
+window.onclick = function(e){
+  if(e.target==document.getElementById('modal')) closeModal();
+}
+</script>
 
 </body>
 </html>
