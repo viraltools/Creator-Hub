@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Creator Hub Pro - All-in-One AI Creator SaaS Platform for content creation, SEO, design, video, and productivity tools." />
+  <meta name="description" content="Creator Hub Pro - AI Tools Dashboard with 12 tools and top 5 resources each." />
   <title>Creator Hub Pro</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -40,62 +40,14 @@
       color:#cbd5e1;
       font-size:16px;
       max-width:800px;
-      margin-left:auto;
-      margin-right:auto;
-    }
-
-    .btns{
-      margin-top:25px;
-      display:flex;
-      justify-content:center;
-      gap:15px;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      padding:12px 22px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:600;
-    }
-
-    .primary{
-      background:linear-gradient(90deg,#7c3aed,#ec4899);
-      color:white;
-    }
-
-    .secondary{
-      border:1px solid rgba(255,255,255,0.2);
-      color:white;
-    }
-
-    .stats{
-      display:flex;
-      justify-content:center;
-      gap:20px;
-      margin-top:30px;
-      flex-wrap:wrap;
-    }
-
-    .stat{
-      background:rgba(255,255,255,0.05);
-      padding:15px 25px;
-      border-radius:12px;
-      min-width:150px;
-      text-align:center;
-    }
-
-    .section-title{
-      text-align:center;
-      margin-top:60px;
-      font-size:32px;
+      margin:auto;
     }
 
     .tools{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
       gap:18px;
-      margin-top:30px;
+      margin-top:40px;
     }
 
     .card{
@@ -103,10 +55,8 @@
       padding:18px;
       border-radius:14px;
       border:1px solid rgba(255,255,255,0.08);
-      text-decoration:none;
-      color:white;
+      cursor:pointer;
       transition:0.3s;
-      display:block;
     }
 
     .card:hover{
@@ -114,13 +64,40 @@
       background:rgba(124,58,237,0.15);
     }
 
-    .tag{
-      display:inline-block;
-      margin-top:8px;
-      font-size:12px;
-      padding:4px 10px;
-      border-radius:999px;
-      background:#7c3aed;
+    /* MODAL */
+    .modal{
+      display:none;
+      position:fixed;
+      top:0;left:0;
+      width:100%;height:100%;
+      background:rgba(0,0,0,0.85);
+      justify-content:center;
+      align-items:center;
+    }
+
+    .modal-content{
+      background:#0f172a;
+      padding:20px;
+      border-radius:14px;
+      width:90%;
+      max-width:500px;
+    }
+
+    .close{
+      float:right;
+      cursor:pointer;
+      font-size:20px;
+    }
+
+    a.link{
+      display:block;
+      margin:8px 0;
+      color:#60a5fa;
+      text-decoration:none;
+    }
+
+    a.link:hover{
+      text-decoration:underline;
     }
   </style>
 </head>
@@ -130,41 +107,74 @@
 
   <header>
     <h1>Creator Hub Pro</h1>
-    <p class="subtitle">All-in-One AI Creator SaaS Platform for YouTube, TikTok, SEO, design, video generation, and productivity tools.</p>
-
-    <div class="btns">
-      <a class="btn primary" href="#tools">Explore AI Tools</a>
-      <a class="btn secondary" href="#tools">Learn More</a>
-    </div>
-
-    <div class="stats">
-      <div class="stat">50+ Tools</div>
-      <div class="stat">100K+ Users</div>
-      <div class="stat">24/7 Access</div>
-    </div>
+    <p class="subtitle">All-in-One AI Tool Dashboard with 12 tools and top 5 resources each</p>
   </header>
 
-  <div class="section-title">Explore AI Tools</div>
+  <div class="tools">
 
-  <div class="tools" id="tools">
-
-    <a class="card" href="https://chatgpt.com" target="_blank">AI Caption Generator <div class="tag">SEO</div></a>
-    <a class="card" href="https://www.canva.com" target="_blank">AI Thumbnail Generator <div class="tag">Trending</div></a>
-    <a class="card" href="https://www.canva.com/logo-maker/" target="_blank">AI Logo Designer <div class="tag">Brand</div></a>
-    <a class="card" href="https://www.semrush.com" target="_blank">SEO Optimization Tools <div class="tag">Rank</div></a>
-    <a class="card" href="https://chatgpt.com" target="_blank">Description Generator <div class="tag">AI</div></a>
-    <a class="card" href="https://www.ilovepdf.com" target="_blank">File Converter Tools <div class="tag">Fast</div></a>
-
-    <a class="card" href="https://runwayml.com" target="_blank">AI Video Generator <div class="tag">New</div></a>
-    <a class="card" href="https://leonardo.ai" target="_blank">AI Image Generator <div class="tag">AI</div></a>
-    <a class="card" href="https://chatgpt.com" target="_blank">Script Writer Tools <div class="tag">Writer</div></a>
-    <a class="card" href="https://inflact.com/hashtag-generator/" target="_blank">Hashtag Generator <div class="tag">Viral</div></a>
-    <a class="card" href="https://pixabay.com/music/" target="_blank">Free Music Library <div class="tag">Free</div></a>
-    <a class="card" href="https://savefrom.net" target="_blank">Video Downloader Tools <div class="tag">Utility</div></a>
+    <div class="card" onclick="openTool('caption')">AI Caption Generator</div>
+    <div class="card" onclick="openTool('thumbnail')">AI Thumbnail Generator</div>
+    <div class="card" onclick="openTool('logo')">AI Logo Designer</div>
+    <div class="card" onclick="openTool('seo')">SEO Optimization Tools</div>
+    <div class="card" onclick="openTool('description')">Description Generator</div>
+    <div class="card" onclick="openTool('converter')">File Converter</div>
+    <div class="card" onclick="openTool('video')">AI Video Generator</div>
+    <div class="card" onclick="openTool('image')">AI Image Generator</div>
+    <div class="card" onclick="openTool('script')">Script Writer</div>
+    <div class="card" onclick="openTool('hashtag')">Hashtag Generator</div>
+    <div class="card" onclick="openTool('music')">Free Music Tools</div>
+    <div class="card" onclick="openTool('downloader')">Video Downloader</div>
 
   </div>
-
 </div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    <h3 id="title"></h3>
+    <div id="links"></div>
+  </div>
+</div>
+
+<script>
+
+const data = {
+  caption:["https://chatgpt.com","https://copy.ai","https://writesonic.com","https://jasper.ai","https://rytr.me"],
+  thumbnail:["https://canva.com","https://adobe.com/express","https://fotor.com","https://pixlr.com","https://picmonkey.com"],
+  logo:["https://canva.com/logo-maker","https://looka.com","https://hatchful.shopify.com","https://tailorbrands.com","https://brandcrowd.com"],
+  seo:["https://semrush.com","https://ahrefs.com","https://moz.com","https://ubersuggest.com","https://google.com/webmasters"],
+  description:["https://chatgpt.com","https://copy.ai","https://writesonic.com","https://rytr.me","https://jasper.ai"],
+  converter:["https://ilovepdf.com","https://smallpdf.com","https://cloudconvert.com","https://convertio.co","https://zamzar.com"],
+  video:["https://runwayml.com","https://pika.art","https://luma.ai","https://kaiber.ai","https://pictory.ai"],
+  image:["https://leonardo.ai","https://midjourney.com","https://canva.com","https://playgroundai.com","https://bing.com/images/create"],
+  script:["https://chatgpt.com","https://copy.ai","https://writesonic.com","https://rytr.me","https://jasper.ai"],
+  hashtag:["https://inflact.com","https://best-hashtags.com","https://all-hashtag.com","https://seekmetrics.com","https://hashtagmark.com"],
+  music:["https://pixabay.com/music","https://mixkit.co","https://uppbeat.io","https://incompetech.com","https://freesound.org"],
+  downloader:["https://savefrom.net","https://ssyoutube.com","https://snaptik.app","https://instasave.website","https://yt5s.com"]
+};
+
+function openTool(t){
+  document.getElementById('modal').style.display='flex';
+  document.getElementById('title').innerText=t.toUpperCase();
+
+  let html="";
+  data[t].forEach(l=>{
+    html+=`<a class='link' href='${l}' target='_blank'>${l}</a>`;
+  });
+
+  document.getElementById('links').innerHTML=html;
+}
+
+function closeModal(){
+  document.getElementById('modal').style.display='none';
+}
+
+window.onclick=function(e){
+  if(e.target==document.getElementById('modal')) closeModal();
+}
+
+</script>
 
 </body>
 </html>
