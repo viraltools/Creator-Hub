@@ -1,184 +1,507 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Creator Hub Pro - Full SaaS</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Creator Hub Pro - All-in-One AI Creator SaaS Platform with AI video generators, AI image tools, script writers, music resources, and hashtag generators." />
+  <meta name="keywords" content="AI tools, AI video generator, AI image generator, content creator tools, YouTube tools, AI SaaS platform, hashtag generator" />
+  <meta name="author" content="Creator Hub Pro" />
+  <title>Creator Hub Pro | AI Creator SaaS Platform</title>
 
-<style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-body{
-margin:0;
-font-family:Arial;
-background:#050816;
-color:white;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-.hero{
-text-align:center;
-padding:60px 20px;
-background:radial-gradient(circle,#0f172a,#020617);
-}
+    body {
+      background: #050816;
+      color: #fff;
+      overflow-x: hidden;
+    }
 
-.hero h1{
-font-size:55px;
-background:linear-gradient(90deg,#38bdf8,#22c55e);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
+    body::before {
+      content: "";
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(139,92,246,0.25), transparent 70%);
+      top: -200px;
+      left: -150px;
+      z-index: -1;
+    }
 
-.container{
-max-width:1200px;
-margin:auto;
-padding:20px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:20px;
-}
+    body::after {
+      content: "";
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(34,211,238,0.18), transparent 70%);
+      bottom: -200px;
+      right: -100px;
+      z-index: -1;
+    }
 
-.card{
-background:rgba(255,255,255,0.05);
-padding:20px;
-border-radius:15px;
-border:1px solid rgba(255,255,255,0.1);
-transition:0.3s;
-}
+    .container {
+      width: 92%;
+      max-width: 1300px;
+      margin: auto;
+    }
 
-.card:hover{
-transform:translateY(-5px);
-border-color:#38bdf8;
-}
+    header {
+      padding: 80px 0 50px;
+      text-align: center;
+    }
 
-h2{
-margin-bottom:10px;
-font-size:20px;
-}
+    .badge {
+      display: inline-block;
+      padding: 10px 24px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      margin-bottom: 25px;
+      font-size: 14px;
+      color: #8be9fd;
+    }
 
-.site{
-margin-top:8px;
-padding:10px;
-border-radius:8px;
-background:#0f172a;
-cursor:pointer;
-border:1px solid rgba(255,255,255,0.1);
-transition:0.2s;
-font-size:14px;
-}
+    h1 {
+      font-size: 72px;
+      font-weight: 800;
+      background: linear-gradient(90deg, #6ee7ff, #a855f7, #ff4ecd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 18px;
+      line-height: 1.1;
+    }
 
-.site:hover{
-background:#38bdf8;
-color:black;
-}
+    .subtitle {
+      font-size: 22px;
+      color: #cbd5e1;
+      max-width: 850px;
+      margin: auto;
+      line-height: 1.7;
+    }
 
-</style>
+    .hero-buttons {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 16px 34px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #7c3aed, #ec4899);
+      color: white;
+      box-shadow: 0 0 25px rgba(168,85,247,0.5);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 35px rgba(236,72,153,0.7);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-4px);
+    }
+
+    .stats {
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      flex-wrap: wrap;
+    }
+
+    .stat-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 18px 28px;
+      border-radius: 18px;
+      min-width: 180px;
+      backdrop-filter: blur(10px);
+    }
+
+    .stat-box h3 {
+      font-size: 28px;
+      color: #6ee7ff;
+      margin-bottom: 5px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 90px 0 20px;
+      font-size: 42px;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #94a3b8;
+      margin-bottom: 55px;
+      font-size: 18px;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      margin-bottom: 80px;
+    }
+
+    .tool-card {
+      background: linear-gradient(180deg, rgba(15,23,42,0.95), rgba(10,15,30,0.95));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      transition: 0.35s ease;
+      backdrop-filter: blur(16px);
+    }
+
+    .tool-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(168,85,247,0.15), transparent, rgba(34,211,238,0.12));
+      opacity: 0;
+      transition: 0.4s ease;
+    }
+
+    .tool-card:hover::before {
+      opacity: 1;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(168,85,247,0.45);
+      box-shadow: 0 0 35px rgba(168,85,247,0.18);
+    }
+
+    .tool-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+
+    .tool-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .tool-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      background: linear-gradient(135deg, #7c3aed, #06b6d4);
+      box-shadow: 0 0 25px rgba(124,58,237,0.4);
+    }
+
+    .new-badge {
+      background: linear-gradient(90deg, #ff4ecd, #7c3aed);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .tool-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 25px;
+    }
+
+    .tool-list li {
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+
+    .tool-list li:hover {
+      background: rgba(168,85,247,0.15);
+      transform: translateX(6px);
+    }
+
+    .explore-btn {
+      width: 100%;
+      display: inline-block;
+      text-align: center;
+      text-decoration: none;
+      padding: 15px;
+      border-radius: 14px;
+      font-weight: 600;
+      color: white;
+      background: linear-gradient(90deg, #7c3aed, #ec4899);
+      transition: 0.3s ease;
+    }
+
+    .explore-btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px rgba(236,72,153,0.5);
+    }
+
+    .seo-section {
+      margin: 100px 0;
+      text-align: center;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 60px 30px;
+      border-radius: 30px;
+    }
+
+    .seo-section h2 {
+      font-size: 42px;
+      margin-bottom: 18px;
+    }
+
+    .seo-section p {
+      max-width: 850px;
+      margin: auto;
+      color: #cbd5e1;
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    footer {
+      padding: 40px 0 60px;
+      text-align: center;
+      color: #94a3b8;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 40px;
+    }
+
+    @media(max-width: 768px) {
+      h1 {
+        font-size: 46px;
+      }
+
+      .subtitle {
+        font-size: 17px;
+      }
+
+      .section-title {
+        font-size: 34px;
+      }
+
+      .tool-title {
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="hero">
-<h1>🚀 Creator Hub Pro</h1>
-<p>All-in-One AI Creator SaaS Platform</p>
-</div>
+  <div class="container">
 
-<div class="container">
+    <header>
+      <div class="badge">🚀 Trusted by 10K+ Content Creators</div>
 
-<!-- VIDEO GENERATOR -->
-<div class="card">
-<h2>🎬 AI Video Generator</h2>
-<div class="site" onclick="openLink('https://pixverse.ai/')">PixVerse AI</div>
-<div class="site" onclick="openLink('https://lumalabs.ai/dream-machine')">Luma Dream Machine</div>
-<div class="site" onclick="openLink('https://pika.art/')">Pika Labs</div>
-<div class="site" onclick="openLink('https://runwayml.com/')">Runway ML</div>
-<div class="site" onclick="openLink('https://hailuoai.video/')">Hailuo AI</div>
-</div>
+      <h1>Creator Hub Pro</h1>
 
-<!-- IMAGE GENERATOR -->
-<div class="card">
-<h2>🖼️ AI Image Generator</h2>
-<div class="site" onclick="openLink('https://leonardo.ai/')">Leonardo AI</div>
-<div class="site" onclick="openLink('https://www.mage.space/')">Mage Space</div>
-<div class="site" onclick="openLink('https://playground.com/')">Playground AI</div>
-<div class="site" onclick="openLink('https://ideogram.ai/')">Ideogram AI</div>
-<div class="site" onclick="openLink('https://www.bing.com/images/create')">Bing Image Creator</div>
-</div>
+      <p class="subtitle">
+        The ultimate AI Creator SaaS Platform for YouTubers, TikTok creators, bloggers, designers, and digital marketers. Generate videos, images, scripts, hashtags, and more with powerful AI tools.
+      </p>
 
-<!-- FREE MUSIC -->
-<div class="card">
-<h2>🎵 Free Music</h2>
-<div class="site" onclick="openLink('https://pixabay.com/music/')">Pixabay Music</div>
-<div class="site" onclick="openLink('https://mixkit.co/free-stock-music/')">Mixkit Music</div>
-<div class="site" onclick="openLink('https://www.youtube.com/@NoCopyrightSounds')">No Copyright Sounds</div>
-<div class="site" onclick="openLink('https://uppbeat.io/')">Uppbeat</div>
-<div class="site" onclick="openLink('https://incompetech.com/')">Incompetech</div>
-</div>
+      <div class="hero-buttons">
+        <a href="#tools" class="btn btn-primary">Explore AI Tools</a>
+        <a href="#seo" class="btn btn-secondary">Learn More</a>
+      </div>
 
-<!-- VIDEO DOWNLOADER -->
-<div class="card">
-<h2>⬇️ Video Downloader</h2>
-<div class="site" onclick="openLink('https://ssyoutube.com/')">YouTube Downloader</div>
-<div class="site" onclick="openLink('https://snaptik.app/')">TikTok Downloader</div>
-<div class="site" onclick="openLink('https://snapinsta.app/')">Instagram Downloader</div>
-<div class="site" onclick="openLink('https://fdown.net/')">Facebook Downloader</div>
-<div class="site" onclick="openLink('https://savefrom.net/')">SaveFrom</div>
-</div>
+      <div class="stats">
+        <div class="stat-box">
+          <h3>50+</h3>
+          <p>AI Creator Tools</p>
+        </div>
 
-<!-- SCRIPT WRITER -->
-<div class="card">
-<h2>📝 Script Writer Tools</h2>
-<div class="site" onclick="openLink('https://chat.openai.com/')">ChatGPT</div>
-<div class="site" onclick="openLink('https://www.copy.ai/')">Copy.ai</div>
-<div class="site" onclick="openLink('https://writesonic.com/')">Writesonic</div>
-<div class="site" onclick="openLink('https://rytr.me/')">Rytr</div>
-<div class="site" onclick="openLink('https://jasper.ai/')">Jasper AI</div>
-</div>
+        <div class="stat-box">
+          <h3>100K+</h3>
+          <p>Monthly Users</p>
+        </div>
 
-<!-- HASHTAG GENERATOR -->
-<div class="card">
-<h2>#️⃣ Hashtag Generator</h2>
-<div class="site" onclick="openLink('https://best-hashtags.com/')">Best Hashtags</div>
-<div class="site" onclick="openLink('https://inflact.com/tools/instagram-hashtag-generator/')">Inflact</div>
-<div class="site" onclick="openLink('https://all-hashtag.com/')">All Hashtag</div>
-<div class="site" onclick="openLink('https://seekmetrics.com/hashtag-generator')">SeekMetrics</div>
-<div class="site" onclick="openLink('https://hashtagmark.com/')">HashtagMark</div>
-</div>
+        <div class="stat-box">
+          <h3>24/7</h3>
+          <p>Instant AI Access</p>
+        </div>
+      </div>
+    </header>
 
-<!-- DESCRIPTION GENERATOR -->
-<div class="card">
-<h2>📄 Description Generator</h2>
-<div class="site" onclick="openLink('https://chat.openai.com/')">ChatGPT</div>
-<div class="site" onclick="openLink('https://copy.ai/')">Copy.ai</div>
-<div class="site" onclick="openLink('https://writesonic.com/')">Writesonic</div>
-<div class="site" onclick="openLink('https://jasper.ai/')">Jasper AI</div>
-<div class="site" onclick="openLink('https://rytr.me/')">Rytr</div>
-</div>
+    <section id="tools">
+      <h2 class="section-title">Explore Powerful AI Creator Tools</h2>
+      <p class="section-subtitle">Everything you need to grow your content creation business in one place.</p>
 
-<!-- SEO TOOLS -->
-<div class="card">
-<h2>📈 SEO Tools</h2>
-<div class="site" onclick="openLink('https://ahrefs.com/keyword-generator')">Ahrefs</div>
-<div class="site" onclick="openLink('https://neilpatel.com/ubersuggest/')">Ubersuggest</div>
-<div class="site" onclick="openLink('https://keywordtool.io/')">Keyword Tool</div>
-<div class="site" onclick="openLink('https://trends.google.com/')">Google Trends</div>
-<div class="site" onclick="openLink('https://answerthepublic.com/')">Answer The Public</div>
-</div>
+      <div class="tools-grid">
 
-<!-- THUMBNAIL MAKER -->
-<div class="card">
-<h2>🔥 Thumbnail Tools</h2>
-<div class="site" onclick="openLink('https://www.canva.com/')">Canva</div>
-<div class="site" onclick="openLink('https://www.photopea.com/')">Photopea</div>
-<div class="site" onclick="openLink('https://www.fotor.com/')">Fotor</div>
-<div class="site" onclick="openLink('https://www.adobe.com/express/')">Adobe Express</div>
-<div class="site" onclick="openLink('https://www.pixelied.com/')">Pixelied</div>
-</div>
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-title">
+              <div class="tool-icon">🎬</div>
+              AI Video Generator
+            </div>
+            <div class="new-badge">NEW</div>
+          </div>
 
-</div>
+          <ul class="tool-list">
+            <li>PixVerse AI</li>
+            <li>Luma Dream Machine</li>
+            <li>Pika Labs</li>
+            <li>Runway ML</li>
+            <li>Hailuo AI</li>
+          </ul>
 
-<script>
-function openLink(url){
-window.open(url,"_blank");
-}
-</script>
+          <a href="#" class="explore-btn">Explore Video Tools</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-title">
+              <div class="tool-icon">🖼️</div>
+              AI Image Generator
+            </div>
+            <div class="new-badge">TRENDING</div>
+          </div>
+
+          <ul class="tool-list">
+            <li>Leonardo AI</li>
+            <li>Mage Space</li>
+            <li>Playground AI</li>
+            <li>Ideogram AI</li>
+            <li>Bing Image Creator</li>
+          </ul>
+
+          <a href="#" class="explore-btn">Explore Image Tools</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-title">
+              <div class="tool-icon">🎵</div>
+              Free Music
+            </div>
+            <div class="new-badge">FREE</div>
+          </div>
+
+          <ul class="tool-list">
+            <li>Pixabay Music</li>
+            <li>Mixkit Music</li>
+            <li>No Copyright Sounds</li>
+            <li>Uppbeat</li>
+            <li>Incompetech</li>
+          </ul>
+
+          <a href="#" class="explore-btn">Explore Music</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-title">
+              <div class="tool-icon">⬇️</div>
+              Video Downloader
+            </div>
+            <div class="new-badge">HOT</div>
+          </div>
+
+          <ul class="tool-list">
+            <li>YouTube Downloader</li>
+            <li>TikTok Downloader</li>
+            <li>Instagram Downloader</li>
+            <li>Facebook Downloader</li>
+            <li>SaveFrom</li>
+          </ul>
+
+          <a href="#" class="explore-btn">Explore Downloaders</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-title">
+              <div class="tool-icon">✍️</div>
+              Script Writer Tools
+            </div>
+            <div class="new-badge">AI</div>
+          </div>
+
+          <ul class="tool-list">
+            <li>ChatGPT</li>
+            <li>Copy.ai</li>
+            <li>Writesonic</li>
+            <li>Rytr</li>
+            <li>Jasper AI</li>
+          </ul>
+
+          <a href="#" class="explore-btn">Explore Writing Tools</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-title">
+              <div class="tool-icon">#️⃣</div>
+              Hashtag Generator
+            </div>
+            <div class="new-badge">SEO</div>
+          </div>
+
+          <ul class="tool-list">
+            <li>Best Hashtags</li>
+            <li>Inflact</li>
+            <li>All Hashtag</li>
+            <li>SeekMetrics</li>
+            <li>HashtagMark</li>
+          </ul>
+
+          <a href="#" class="explore-btn">Explore Hashtags</a>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="seo-section" id="seo">
+      <h2>Best AI Creator Platform for Content Creators</h2>
+      <p>
+        Creator Hub Pro helps creators discover the best AI tools for YouTube automation, TikTok content, Instagram growth, blogging, SEO optimization, AI image generation, script writing, and royalty-free music resources. This SEO-friendly SaaS platform is designed to rank higher on search engines while delivering a premium user experience.
+      </p>
+    </section>
+
+    <footer>
+      <p>© 2026 Creator Hub Pro • All Rights Reserved • Built for Modern Creators</p>
+    </footer>
+
+  </div>
 
 </body>
 </html>
