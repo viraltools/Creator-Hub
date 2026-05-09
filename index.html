@@ -1,518 +1,365 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-<title>Creator Hub Pro</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  background:#04020b;
-  color:white;
-  overflow-x:hidden;
-}
-
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:
-  radial-gradient(circle at top left, rgba(124,58,237,.25), transparent 35%),
-  radial-gradient(circle at top right, rgba(6,182,212,.20), transparent 35%),
-  radial-gradient(circle at bottom, rgba(236,72,153,.18), transparent 40%);
-  z-index:-1;
-}
-
-.container{
-  width:92%;
-  max-width:1250px;
-  margin:auto;
-  padding:40px 0;
-}
-
-.badge{
-  width:max-content;
-  margin:auto;
-  padding:8px 18px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(255,255,255,.04);
-  color:#c084fc;
-  font-size:13px;
-}
-
-.hero{
-  text-align:center;
-  padding-top:20px;
-}
-
-.hero h1{
-  font-size:64px;
-  margin-top:18px;
-  line-height:1.1;
-  background:linear-gradient(90deg,#7c3aed,#06b6d4,#ec4899);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.hero p{
-  margin-top:20px;
-  color:#cbd5e1;
-  max-width:850px;
-  margin-inline:auto;
-  line-height:1.8;
-  font-size:16px;
-}
-
-.hero-buttons{
-  display:flex;
-  justify-content:center;
-  gap:14px;
-  flex-wrap:wrap;
-  margin-top:30px;
-}
-
-.btn{
-  padding:14px 28px;
-  border-radius:14px;
-  text-decoration:none;
-  font-weight:600;
-  transition:.3s;
-}
-
-.btn-primary{
-  background:linear-gradient(90deg,#7c3aed,#ec4899);
-  color:white;
-  box-shadow:0 0 25px rgba(124,58,237,.5);
-}
-
-.btn-primary:hover{
-  transform:translateY(-3px);
-}
-
-.btn-secondary{
-  border:1px solid rgba(255,255,255,.15);
-  color:white;
-  background:rgba(255,255,255,.04);
-}
-
-.stats{
-  margin-top:45px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
-}
-
-.stat-box{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(124,58,237,.25);
-  border-radius:22px;
-  padding:32px;
-  text-align:center;
-  transition:.3s;
-}
-
-.stat-box:hover{
-  transform:translateY(-5px);
-  box-shadow:0 0 30px rgba(124,58,237,.2);
-}
-
-.stat-box h2{
-  font-size:42px;
-  color:#67e8f9;
-}
-
-.stat-box p{
-  margin-top:8px;
-  color:#cbd5e1;
-}
-
-.section-title{
-  text-align:center;
-  margin-top:80px;
-}
-
-.section-title h2{
-  font-size:46px;
-}
-
-.section-title p{
-  color:#94a3b8;
-  margin-top:10px;
-}
-
-.tools-grid{
-  margin-top:45px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:22px;
-}
-
-.tool-card{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(124,58,237,.25);
-  border-radius:22px;
-  padding:22px;
-  transition:.3s;
-  position:relative;
-  overflow:hidden;
-}
-
-.tool-card::before{
-  content:"";
-  position:absolute;
-  width:180px;
-  height:180px;
-  background:rgba(124,58,237,.15);
-  border-radius:50%;
-  top:-80px;
-  right:-80px;
-}
-
-.tool-card:hover{
-  transform:translateY(-6px);
-  border-color:#06b6d4;
-  box-shadow:0 0 35px rgba(6,182,212,.18);
-}
-
-.tool-title{
-  font-size:24px;
-  font-weight:700;
-  margin-bottom:18px;
-  position:relative;
-  z-index:2;
-}
-
-.tool-links{
-  position:relative;
-  z-index:2;
-}
-
-.tool-links a{
-  display:block;
-  text-decoration:none;
-  color:#e2e8f0;
-  padding:11px 14px;
-  border-radius:12px;
-  margin-bottom:10px;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.05);
-  transition:.3s;
-  pointer-events:auto;
-  position:relative;
-  z-index:20;
-}
-
-.tool-links a:hover{
-  background:#7c3aed;
-  color:white;
-  box-shadow:0 0 18px rgba(124,58,237,.6);
-}
-
-.useful-links{
-  margin-top:80px;
-  text-align:center;
-}
-
-.useful-links h2{
-  font-size:38px;
-}
-
-.website-links{
-  display:flex;
-  justify-content:center;
-  gap:16px;
-  flex-wrap:wrap;
-  margin-top:28px;
-}
-
-.website-links a{
-  text-decoration:none;
-  color:white;
-  padding:14px 22px;
-  border-radius:14px;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(124,58,237,.35);
-  transition:.3s;
-  position:relative;
-  z-index:20;
-}
-
-.website-links a:hover{
-  background:#7c3aed;
-  box-shadow:0 0 20px rgba(124,58,237,.7);
-}
-
-footer{
-  margin-top:60px;
-  text-align:center;
-  color:#94a3b8;
-  font-size:13px;
-}
-
-@media(max-width:768px){
-
-.hero h1{
-  font-size:42px;
-}
-
-.section-title h2{
-  font-size:34px;
-}
-
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="container">
-
-<div class="hero">
-
-<div class="badge">
-🚀 Powered by Creator AI Tools
-</div>
-
-<h1>Creator Hub Pro</h1>
-
-<p>
-The ultimate AI creator toolkit platform for YouTubers, TikTok creators,
-bloggers, designers, and digital marketers.
-Generate videos, images, scripts, thumbnails, hashtags, captions,
-SEO content, and more with powerful AI tools.
-</p>
-
-<div class="hero-buttons">
-
-<a href="#tools" class="btn btn-primary">
-Explore AI Tools
-</a>
-
-<a href="https://chatgpt.com" target="_blank" class="btn btn-secondary">
-Open Websites
-</a>
-
-</div>
-
-<div class="stats">
-
-<div class="stat-box">
-<h2>50+</h2>
-<p>AI Creator Tools</p>
-</div>
-
-<div class="stat-box">
-<h2>100K+</h2>
-<p>Monthly Users</p>
-</div>
-
-<div class="stat-box">
-<h2>24/7</h2>
-<p>Tools Access</p>
-</div>
-
-</div>
-
-</div>
-
-<div class="section-title">
-
-<h2>Explore Powerful AI Creator Tools</h2>
-
-<p>
-Everything you need to grow your content creation business.
-</p>
-
-</div>
+<!-- ================= AI TOOLS GRID ================= -->
 
 <div class="tools-grid" id="tools">
 
+<!-- AI DESCRIPTION -->
+
 <div class="tool-card">
 <div class="tool-title">AI Description Generator</div>
+
 <div class="tool-links">
-<a href="https://chatgpt.com" target="_blank">YouTube Descriptions</a>
-<a href="https://copy.ai" target="_blank">TikTok Captions</a>
-<a href="https://writesonic.com" target="_blank">Instagram Captions</a>
-<a href="https://jasper.ai" target="_blank">SEO Blog Descriptions</a>
-<a href="https://rytr.me" target="_blank">Generate Descriptions</a>
+
+<a href="https://chatgpt.com" target="_blank">
+ChatGPT
+</a>
+
+<a href="https://copy.ai" target="_blank">
+Copy.ai
+</a>
+
+<a href="https://writesonic.com" target="_blank">
+Writesonic
+</a>
+
+<a href="https://jasper.ai" target="_blank">
+Jasper AI
+</a>
+
+<a href="https://rytr.me" target="_blank">
+Rytr
+</a>
+
 </div>
 </div>
+
+<!-- THUMBNAIL -->
 
 <div class="tool-card">
 <div class="tool-title">AI Thumbnail Generator</div>
+
 <div class="tool-links">
-<a href="https://www.canva.com" target="_blank">YouTube Thumbnails</a>
-<a href="https://www.adobe.com/express" target="_blank">Gaming Thumbnails</a>
-<a href="https://www.fotor.com" target="_blank">Podcast Covers</a>
-<a href="https://pixlr.com" target="_blank">Instagram Banners</a>
-<a href="https://www.picmonkey.com" target="_blank">Create Thumbnail</a>
+
+<a href="https://www.canva.com" target="_blank">
+Canva
+</a>
+
+<a href="https://www.adobe.com/express" target="_blank">
+Adobe Express
+</a>
+
+<a href="https://www.fotor.com" target="_blank">
+Fotor
+</a>
+
+<a href="https://pixlr.com" target="_blank">
+Pixlr
+</a>
+
+<a href="https://www.picmonkey.com" target="_blank">
+PicMonkey
+</a>
+
 </div>
 </div>
 
+<!-- SEO -->
+
 <div class="tool-card">
-<div class="tool-title">SEO Optimization Tools</div>
+<div class="tool-title">SEO Optimization</div>
+
 <div class="tool-links">
-<a href="https://www.semrush.com" target="_blank">YouTube SEO Analyzer</a>
-<a href="https://ahrefs.com" target="_blank">Keyword Research</a>
-<a href="https://moz.com" target="_blank">Meta Tag Generator</a>
-<a href="https://neilpatel.com/ubersuggest/" target="_blank">Blog SEO Writer</a>
-<a href="https://search.google.com/search-console" target="_blank">Boost SEO</a>
+
+<a href="https://www.semrush.com" target="_blank">
+Semrush
+</a>
+
+<a href="https://ahrefs.com" target="_blank">
+Ahrefs
+</a>
+
+<a href="https://moz.com" target="_blank">
+Moz
+</a>
+
+<a href="https://neilpatel.com/ubersuggest/" target="_blank">
+Ubersuggest
+</a>
+
+<a href="https://search.google.com/search-console" target="_blank">
+Google SEO
+</a>
+
 </div>
 </div>
+
+<!-- VIDEO -->
 
 <div class="tool-card">
 <div class="tool-title">AI Video Generator</div>
+
 <div class="tool-links">
-<a href="https://runwayml.com" target="_blank">Short Videos</a>
-<a href="https://pika.art" target="_blank">Promo Videos</a>
-<a href="https://lumalabs.ai" target="_blank">Reels Creator</a>
-<a href="https://kaiber.ai" target="_blank">Animation Maker</a>
-<a href="https://pictory.ai" target="_blank">Generate Videos</a>
+
+<a href="https://runwayml.com" target="_blank">
+Runway ML
+</a>
+
+<a href="https://pika.art" target="_blank">
+Pika Labs
+</a>
+
+<a href="https://lumalabs.ai" target="_blank">
+Luma AI
+</a>
+
+<a href="https://kaiber.ai" target="_blank">
+Kaiber
+</a>
+
+<a href="https://pictory.ai" target="_blank">
+Pictory
+</a>
+
 </div>
 </div>
+
+<!-- IMAGE -->
 
 <div class="tool-card">
 <div class="tool-title">AI Image Generator</div>
+
 <div class="tool-links">
-<a href="https://leonardo.ai" target="_blank">Text to Image</a>
-<a href="https://www.midjourney.com" target="_blank">AI Portraits</a>
-<a href="https://playgroundai.com" target="_blank">Background Removal</a>
-<a href="https://www.bing.com/images/create" target="_blank">Image Enhancer</a>
-<a href="https://www.canva.com" target="_blank">Create Images</a>
-</div>
-</div>
 
-<div class="tool-card">
-<div class="tool-title">AI Music Tools</div>
-<div class="tool-links">
-<a href="https://pixabay.com/music/" target="_blank">Music Generator</a>
-<a href="https://mixkit.co" target="_blank">Beat Creator</a>
-<a href="https://voice.ai" target="_blank">Voice Changer</a>
-<a href="https://freesound.org" target="_blank">Sound Effects</a>
-<a href="https://soundraw.io" target="_blank">Generate Music</a>
-</div>
-</div>
+<a href="https://leonardo.ai" target="_blank">
+Leonardo AI
+</a>
 
-<div class="tool-card">
-<div class="tool-title">Video Downloader</div>
-<div class="tool-links">
-<a href="https://en.savefrom.net" target="_blank">YouTube Downloader</a>
-<a href="https://snaptik.app" target="_blank">TikTok Downloader</a>
-<a href="https://sssinstagram.com" target="_blank">Instagram Reels Saver</a>
-<a href="https://fdown.net" target="_blank">Facebook Video Saver</a>
-<a href="https://yt5s.io" target="_blank">Download Videos</a>
-</div>
-</div>
+<a href="https://www.midjourney.com" target="_blank">
+Midjourney
+</a>
 
-<div class="tool-card">
-<div class="tool-title">Script Writing Tools</div>
-<div class="tool-links">
-<a href="https://chatgpt.com" target="_blank">YouTube Scripts</a>
-<a href="https://copy.ai" target="_blank">Podcast Scripts</a>
-<a href="https://writesonic.com" target="_blank">Ad Copy Writing</a>
-<a href="https://jasper.ai" target="_blank">Story Generator</a>
-<a href="https://rytr.me" target="_blank">Write Scripts</a>
-</div>
-</div>
+<a href="https://playgroundai.com" target="_blank">
+Playground AI
+</a>
 
-<div class="tool-card">
-<div class="tool-title">AI Caption Generator</div>
-<div class="tool-links">
-<a href="https://chatgpt.com" target="_blank">Instagram Captions</a>
-<a href="https://copy.ai" target="_blank">TikTok Captions</a>
-<a href="https://writesonic.com" target="_blank">LinkedIn Captions</a>
-<a href="https://jasper.ai" target="_blank">Quote Captions</a>
-<a href="https://rytr.me" target="_blank">Generate Captions</a>
-</div>
-</div>
-
-<div class="tool-card">
-<div class="tool-title">AI Logo Designer</div>
-<div class="tool-links">
-<a href="https://www.canva.com/logo-maker/" target="_blank">Business Logos</a>
-<a href="https://looka.com" target="_blank">YouTube Logos</a>
-<a href="https://hatchful.shopify.com" target="_blank">Gaming Logos</a>
-<a href="https://www.tailorbrands.com" target="_blank">Minimal Logos</a>
-<a href="https://www.brandcrowd.com" target="_blank">Create Logos</a>
-</div>
-</div>
-
-<div class="tool-card">
-<div class="tool-title">AI Converter Tools</div>
-<div class="tool-links">
-<a href="https://cloudconvert.com/mp4-to-mp3" target="_blank">Video to MP3</a>
-<a href="https://convertio.co/png-converter/" target="_blank">Image to PNG</a>
-<a href="https://www.ilovepdf.com" target="_blank">PDF Converter</a>
-<a href="https://smallpdf.com/compress-pdf" target="_blank">File Compressor</a>
-<a href="https://zamzar.com" target="_blank">Convert Files</a>
-</div>
-</div>
-
-<div class="tool-card">
-<div class="tool-title">Hashtag Generator</div>
-<div class="tool-links">
-<a href="https://inflact.com/tools/instagram-hashtag-generator/" target="_blank">Instagram Hashtags</a>
-<a href="https://rapidtags.io" target="_blank">YouTube Tags</a>
-<a href="https://all-hashtag.com" target="_blank">TikTok Hashtags</a>
-<a href="https://seekmetrics.com" target="_blank">Trending Tags</a>
-<a href="https://hashtagmark.com" target="_blank">Generate Hashtags</a>
-</div>
-</div>
-
-</div>
-
-<div class="useful-links">
-
-<h2>Useful Website Links</h2>
-
-<div class="website-links">
-
-<a href="https://www.youtube.com" target="_blank">
-YouTube
+<a href="https://www.bing.com/images/create" target="_blank">
+Bing Create
 </a>
 
 <a href="https://www.canva.com" target="_blank">
 Canva
 </a>
 
+</div>
+</div>
+
+<!-- MUSIC -->
+
+<div class="tool-card">
+<div class="tool-title">AI Music Tools</div>
+
+<div class="tool-links">
+
+<a href="https://pixabay.com/music/" target="_blank">
+Pixabay
+</a>
+
+<a href="https://mixkit.co" target="_blank">
+Mixkit
+</a>
+
+<a href="https://voice.ai" target="_blank">
+Voice AI
+</a>
+
+<a href="https://freesound.org" target="_blank">
+FreeSound
+</a>
+
+<a href="https://soundraw.io" target="_blank">
+Soundraw
+</a>
+
+</div>
+</div>
+
+<!-- DOWNLOADER -->
+
+<div class="tool-card">
+<div class="tool-title">Video Downloader</div>
+
+<div class="tool-links">
+
+<a href="https://en.savefrom.net" target="_blank">
+SaveFrom
+</a>
+
+<a href="https://snaptik.app" target="_blank">
+SnapTik
+</a>
+
+<a href="https://sssinstagram.com" target="_blank">
+Instagram Saver
+</a>
+
+<a href="https://fdown.net" target="_blank">
+FDown
+</a>
+
+<a href="https://yt5s.io" target="_blank">
+YT5s
+</a>
+
+</div>
+</div>
+
+<!-- SCRIPT -->
+
+<div class="tool-card">
+<div class="tool-title">Script Writing</div>
+
+<div class="tool-links">
+
 <a href="https://chatgpt.com" target="_blank">
 ChatGPT
 </a>
 
-<a href="https://www.figma.com" target="_blank">
-Figma
+<a href="https://copy.ai" target="_blank">
+Copy.ai
 </a>
 
-<a href="https://www.capcut.com" target="_blank">
-CapCut
+<a href="https://writesonic.com" target="_blank">
+Writesonic
+</a>
+
+<a href="https://jasper.ai" target="_blank">
+Jasper AI
+</a>
+
+<a href="https://rytr.me" target="_blank">
+Rytr
 </a>
 
 </div>
-
 </div>
 
-<footer>
-© 2026 Creator Hub Pro — All Rights Reserved.
-</footer>
+<!-- CAPTION -->
+
+<div class="tool-card">
+<div class="tool-title">AI Caption Generator</div>
+
+<div class="tool-links">
+
+<a href="https://chatgpt.com" target="_blank">
+ChatGPT
+</a>
+
+<a href="https://copy.ai" target="_blank">
+Copy.ai
+</a>
+
+<a href="https://writesonic.com" target="_blank">
+Writesonic
+</a>
+
+<a href="https://jasper.ai" target="_blank">
+Jasper AI
+</a>
+
+<a href="https://rytr.me" target="_blank">
+Rytr
+</a>
 
 </div>
+</div>
 
-</body>
-</html>
+<!-- LOGO -->
+
+<div class="tool-card">
+<div class="tool-title">AI Logo Designer</div>
+
+<div class="tool-links">
+
+<a href="https://www.canva.com/logo-maker/" target="_blank">
+Canva
+</a>
+
+<a href="https://looka.com" target="_blank">
+Looka
+</a>
+
+<a href="https://hatchful.shopify.com" target="_blank">
+Hatchful
+</a>
+
+<a href="https://www.tailorbrands.com" target="_blank">
+Tailor Brands
+</a>
+
+<a href="https://www.brandcrowd.com" target="_blank">
+BrandCrowd
+</a>
+
+</div>
+</div>
+
+<!-- CONVERTER -->
+
+<div class="tool-card">
+<div class="tool-title">AI Converter Tools</div>
+
+<div class="tool-links">
+
+<a href="https://cloudconvert.com" target="_blank">
+CloudConvert
+</a>
+
+<a href="https://convertio.co" target="_blank">
+Convertio
+</a>
+
+<a href="https://www.ilovepdf.com" target="_blank">
+iLovePDF
+</a>
+
+<a href="https://smallpdf.com" target="_blank">
+SmallPDF
+</a>
+
+<a href="https://zamzar.com" target="_blank">
+Zamzar
+</a>
+
+</div>
+</div>
+
+<!-- HASHTAG -->
+
+<div class="tool-card">
+<div class="tool-title">Hashtag Generator</div>
+
+<div class="tool-links">
+
+<a href="https://inflact.com/tools/instagram-hashtag-generator/" target="_blank">
+Inflact
+</a>
+
+<a href="https://rapidtags.io" target="_blank">
+RapidTags
+</a>
+
+<a href="https://all-hashtag.com" target="_blank">
+All Hashtag
+</a>
+
+<a href="https://seekmetrics.com" target="_blank">
+SeekMetrics
+</a>
+
+<a href="https://hashtagmark.com" target="_blank">
+HashtagMark
+</a>
+
+</div>
+</div>
+
+</div>
