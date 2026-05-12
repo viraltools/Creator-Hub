@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Creator Hub Pro</title>
+<title>Creator Hub Pro — 1000+ Free AI Tools Directory</title>
+
+<meta name="description" content="Discover the best free AI tools for creators, YouTubers, developers, bloggers, marketers, designers, and businesses.">
+
+<meta name="keywords" content="AI tools, free AI tools, creator tools, AI SEO tools, AI video tools, AI image generators">
+
+<link rel="icon" href="./logo.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
 /* RESET */
+
 *{
 margin:0;
 padding:0;
@@ -23,124 +31,181 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#050816;
+background:#040816;
 color:white;
 overflow-x:hidden;
 }
 
-/* BACKGROUND EFFECT */
+/* PREMIUM BACKGROUND */
+
 body::before{
 content:"";
 position:fixed;
 inset:0;
 background:
-radial-gradient(circle at top left, rgba(124,58,237,.25), transparent 30%),
+radial-gradient(circle at top left, rgba(124,58,237,.22), transparent 30%),
 radial-gradient(circle at top right, rgba(6,182,212,.18), transparent 30%),
 radial-gradient(circle at bottom, rgba(236,72,153,.15), transparent 35%);
+z-index:-2;
+}
+
+/* GLOW */
+
+.glow{
+position:fixed;
+width:500px;
+height:500px;
+border-radius:50%;
+background:#7c3aed;
+filter:blur(180px);
+opacity:.12;
 z-index:-1;
+top:-120px;
+left:-120px;
+animation:moveGlow 10s infinite alternate ease-in-out;
+}
+
+@keyframes moveGlow{
+from{
+transform:translate(0,0);
+}
+to{
+transform:translate(100px,60px);
+}
 }
 
 /* CONTAINER */
+
 .container{
 width:92%;
-max-width:1300px;
+max-width:1350px;
 margin:auto;
 padding:40px 0;
 }
 
-/* HERO */
-.hero{
-text-align:center;
-padding:20px 0 70px;
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 0;
+position:sticky;
+top:0;
+z-index:999;
+backdrop-filter:blur(12px);
+background:rgba(5,8,22,.65);
 }
 
-/* BADGE */
+.logo-area{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.logo-area img{
+width:58px;
+border-radius:16px;
+box-shadow:0 0 20px #7c3aed;
+}
+
+.logo-area h2{
+font-size:28px;
+font-weight:700;
+background:linear-gradient(90deg,#06b6d4,#8b5cf6);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:30px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+font-size:15px;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:#06b6d4;
+}
+
+/* HERO */
+
+.hero{
+padding:70px 0 90px;
+text-align:center;
+}
+
 .badge{
 display:inline-block;
-padding:10px 20px;
+padding:10px 22px;
 border-radius:999px;
 background:rgba(255,255,255,.05);
 border:1px solid rgba(255,255,255,.08);
 color:#c084fc;
 font-size:14px;
-margin-bottom:25px;
+margin-bottom:28px;
 }
 
-/* LOGO + TITLE */
-.brand-wrap{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:25px;
-flex-wrap:wrap;
-margin-bottom:25px;
-}
-
-/* LOGO */
-.main-logo{
-width:240px;
-height:auto;
-object-fit:contain;
+.hero-logo{
+width:180px;
+margin-bottom:30px;
+border-radius:30px;
 filter:
-drop-shadow(0 0 15px #7c3aed)
-drop-shadow(0 0 25px #06b6d4);
+drop-shadow(0 0 20px #7c3aed)
+drop-shadow(0 0 35px #06b6d4);
 animation:float 4s ease-in-out infinite;
 }
 
-/* FLOAT */
 @keyframes float{
 0%{transform:translateY(0);}
-50%{transform:translateY(-10px);}
+50%{transform:translateY(-12px);}
 100%{transform:translateY(0);}
 }
 
-/* TITLE */
-.hero-text h1{
-font-size:75px;
-font-weight:800;
+.hero h1{
+font-size:78px;
 line-height:1;
-background:linear-gradient(
-90deg,
-#3b82f6,
-#06b6d4,
-#8b5cf6
-);
+font-weight:800;
+max-width:1000px;
+margin:auto;
+}
+
+.gradient{
+background:linear-gradient(90deg,#3b82f6,#06b6d4,#8b5cf6);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
-/* TAGLINE */
-.tagline{
-margin-top:12px;
-font-size:16px;
-letter-spacing:2px;
-color:#cbd5e1;
-}
-
-/* DESCRIPTION */
-.hero-description{
+.hero p{
 max-width:850px;
-margin:25px auto;
-font-size:18px;
-line-height:1.8;
+margin:28px auto;
+font-size:19px;
+line-height:1.9;
 color:#cbd5e1;
 }
 
 /* BUTTONS */
+
 .hero-buttons{
 display:flex;
 justify-content:center;
-gap:16px;
+gap:18px;
 flex-wrap:wrap;
-margin-top:30px;
+margin-top:35px;
 }
 
 .btn-primary,
 .btn-secondary{
-padding:14px 30px;
+padding:15px 32px;
 border-radius:14px;
-text-decoration:none;
 font-weight:600;
+text-decoration:none;
 transition:.3s;
 }
 
@@ -151,27 +216,57 @@ box-shadow:0 0 25px rgba(168,85,247,.45);
 }
 
 .btn-primary:hover{
-transform:translateY(-3px);
+transform:translateY(-4px);
 }
 
 .btn-secondary{
 background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.1);
+border:1px solid rgba(255,255,255,.08);
 color:white;
 }
+
+/* SEARCH */
+
+.search-box{
+margin-top:45px;
+display:flex;
+justify-content:center;
+}
+
+.search-box input{
+width:100%;
+max-width:700px;
+padding:18px 22px;
+border:none;
+outline:none;
+border-radius:18px;
+background:rgba(255,255,255,.05);
+color:white;
+font-size:17px;
+border:1px solid rgba(255,255,255,.08);
+}
+
 /* STATS */
+
 .stats{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:22px;
-margin-top:60px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:24px;
+margin-top:70px;
 }
+
 .stat-card{
 background:rgba(255,255,255,.04);
-border:1px solid rgba(124,58,237,.22);
-padding:35px 20px;
-border-radius:20px;
+border:1px solid rgba(124,58,237,.2);
+padding:35px;
+border-radius:22px;
 text-align:center;
+transition:.3s;
+}
+
+.stat-card:hover{
+transform:translateY(-5px);
+border-color:#06b6d4;
 }
 
 .stat-card h2{
@@ -180,72 +275,73 @@ color:#67e8f9;
 margin-bottom:10px;
 }
 
-/* SECTION TITLE */
+/* SECTION */
+
 .section-title{
 text-align:center;
-margin:90px 0 45px;
+margin:100px 0 50px;
 }
 
 .section-title h2{
-font-size:50px;
+font-size:54px;
 font-weight:800;
-margin-bottom:12px;
+margin-bottom:14px;
 }
 
 .section-title p{
 color:#94a3b8;
 }
 
-/* TOOL GRID */
+/* GRID */
+
 .tools-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:24px;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
 }
 
-/* CARD */
+/* TOOL CARD */
+
 .tool-card{
 background:rgba(255,255,255,.04);
-border:1px solid rgba(124,58,237,.25);
-padding:24px;
-border-radius:20px;
-transition:.3s;
+border:1px solid rgba(124,58,237,.22);
+padding:26px;
+border-radius:24px;
+transition:.35s;
 position:relative;
 overflow:hidden;
 }
 
 .tool-card:hover{
-transform:translateY(-6px);
+transform:translateY(-8px);
 border-color:#06b6d4;
 }
 
 .tool-card::before{
-content:"";
+content:'';
 position:absolute;
 top:-40px;
 right:-40px;
 width:120px;
 height:120px;
-background:rgba(124,58,237,.15);
 border-radius:50%;
+background:rgba(124,58,237,.14);
 }
 
-/* TOOL TITLE */
 .tool-card h3{
 font-size:28px;
-margin-bottom:18px;
+margin-bottom:20px;
 line-height:1.3;
 }
 
-/* TOOL LINKS */
 .tool-card a{
 display:block;
-padding:12px 14px;
+padding:13px 15px;
 margin:10px 0;
 background:rgba(255,255,255,.05);
-border-radius:12px;
-text-decoration:none;
+border-radius:14px;
 color:white;
+text-decoration:none;
 transition:.3s;
 font-size:15px;
 }
@@ -254,53 +350,73 @@ font-size:15px;
 background:#7c3aed;
 }
 
-/* FOOTER LINKS */
-.footer-links{
+/* CTA */
+
+.cta{
+margin-top:100px;
+padding:70px;
+border-radius:35px;
 text-align:center;
-margin-top:70px;
+background:
+linear-gradient(135deg,
+rgba(124,58,237,.2),
+rgba(6,182,212,.12));
+border:1px solid rgba(255,255,255,.08);
 }
 
-.footer-links a{
-display:inline-block;
-margin:8px;
-padding:12px 20px;
-border-radius:12px;
-background:rgba(255,255,255,.05);
-text-decoration:none;
-color:white;
-transition:.3s;
+.cta h2{
+font-size:54px;
+margin-bottom:20px;
 }
 
-.footer-links a:hover{
-background:#7c3aed;
+.cta p{
+max-width:700px;
+margin:auto;
+line-height:1.8;
+color:#cbd5e1;
+margin-bottom:30px;
 }
 
 /* FOOTER */
+
 footer{
-margin-top:50px;
-padding-bottom:30px;
+margin-top:70px;
+padding-bottom:35px;
 text-align:center;
 font-size:14px;
 color:#94a3b8;
 }
 
 /* MOBILE */
+
 @media(max-width:768px){
 
-.hero-text h1{
+.hero h1{
 font-size:48px;
 }
 
-.main-logo{
-width:110px;
+.hero-logo{
+width:120px;
 }
 
-.hero-description{
-font-size:15px;
+.hero p{
+font-size:16px;
 }
 
 .section-title h2{
 font-size:38px;
+}
+
+nav ul{
+display:none;
+}
+
+.cta{
+padding:40px 20px;
+}
+
+.cta h2{
+font-size:36px;
 }
 
 }
@@ -310,49 +426,72 @@ font-size:38px;
 
 <body>
 
+<div class="glow"></div>
+
 <div class="container">
 
+<!-- NAV -->
+
+<nav>
+
+<div class="logo-area">
+<img src="./logo.png">
+<h2>Creator Hub Pro</h2>
+</div>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#tools">Tools</a></li>
+<li><a href="#">Categories</a></li>
+<li><a href="#">Blog</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+
+</nav>
+
 <!-- HERO -->
+
 <section class="hero">
 
 <div class="badge">
-🚀 Powered by Creator AI Tools
+🚀 1000+ Free AI Tools Directory
 </div>
 
-<!-- LOGO + TITLE -->
-<div class="brand-wrap">
+<img src="./logo.png" class="hero-logo">
 
-<!-- YOUR LOGO -->
-<img src="./logo.png" class="main-logo" alt="Creator Hub Pro Logo">
+<h1>
+Discover Powerful
+<span class="gradient">AI Creator Tools</span>
+</h1>
 
-<div class="hero-text">
-<h1>Creator Hub Pro</h1>
-
-<p class="tagline">
-Create • Automate • Grow
-</p>
-</div>
-
-</div>
-
-<p class="hero-description">
-The ultimate AI creator toolkit platform for YouTubers, TikTok creators,
-bloggers, designers, and digital marketers. Generate videos, images,
-scripts, thumbnails, captions, hashtags, SEO content, logos,
-and more with powerful AI tools.
+<p>
+The ultimate AI platform for creators, YouTubers, designers,
+bloggers, developers, marketers, and businesses.
+Generate content, videos, thumbnails, scripts, images,
+SEO content, and more using powerful AI tools.
 </p>
 
 <div class="hero-buttons">
-<a href="#tools" class="btn-primary">Explore AI Tools</a>
-<a href="https://chat.openai.com" target="_blank" class="btn-secondary">Open Websites</a>
+
+<a href="#tools" class="btn-primary">
+Explore Tools
+</a>
+
+<a href="https://chat.openai.com" target="_blank" class="btn-secondary">
+Open AI
+</a>
+
 </div>
 
-<!-- STATS -->
+<div class="search-box">
+<input type="text" placeholder="Search AI tools...">
+</div>
+
 <div class="stats">
 
 <div class="stat-card">
-<h2>50+</h2>
-<p>AI Creator Tools</p>
+<h2>1000+</h2>
+<p>AI Tools</p>
 </div>
 
 <div class="stat-card">
@@ -361,214 +500,89 @@ and more with powerful AI tools.
 </div>
 
 <div class="stat-card">
-<h2>24/7</h2>
-<p>Instant AI Access</p>
+<h2>50+</h2>
+<p>Categories</p>
 </div>
+
 </div>
+
 </section>
-<!-- SECTION TITLE -->
+
+<!-- SECTION -->
+
 <div class="section-title">
-<h2>Explore Powerful AI Creator Tools in One Page </h2>
-<p>Everything you need to grow your content creation business.</p>
+
+<h2>
+Popular AI Tools
+</h2>
+
+<p>
+Best AI tools for productivity, design, SEO, coding, and content creation.
+</p>
+
 </div>
 
 <!-- TOOLS -->
+
 <div class="tools-grid" id="tools">
 
-<!-- CARD -->
 <div class="tool-card">
-<h3>AI Description Generator</h3>
+<h3>AI Writing Tools</h3>
 
 <a href="https://chat.openai.com" target="_blank">ChatGPT</a>
-
 <a href="https://copy.ai" target="_blank">Copy.ai</a>
-
 <a href="https://writesonic.com" target="_blank">Writesonic</a>
-
 <a href="https://jasper.ai" target="_blank">Jasper AI</a>
 
-<a href="https://rytr.me" target="_blank">Rytr</a>
 </div>
 
-<!-- CARD -->
 <div class="tool-card">
-<h3>AI Thumbnail Generator</h3>
-
-<a href="https://canva.com" target="_blank">Canva</a>
-
-<a href="https://www.adobe.com/express/" target="_blank">Adobe Express</a>
-
-<a href="https://fotor.com" target="_blank">Fotor</a>
-
-<a href="https://pixlr.com" target="_blank">Pixlr</a>
-
-<a href="https://picmonkey.com" target="_blank">PicMonkey</a>
-</div>
-
-<!-- CARD -->
-<div class="tool-card">
-<h3>SEO Optimization Tools</h3>
-
-<a href="https://semrush.com" target="_blank">Semrush</a>
-
-<a href="https://ahrefs.com" target="_blank">Ahrefs</a>
-
-<a href="https://moz.com" target="_blank">Moz</a>
-
-<a href="https://neilpatel.com/ubersuggest/" target="_blank">Ubersuggest</a>
-
-<a href="https://search.google.com/search-console/about" target="_blank">Google SEO</a>
-</div>
-
-<!-- CARD -->
-<div class="tool-card">
-<h3>AI Video Generator</h3>
-
-<a href="https://runwayml.com" target="_blank">Runway ML</a>
-
-<a href="https://pika.art" target="_blank">Pika Labs</a>
-
-<a href="https://lumalabs.ai/dream-machine" target="_blank">Luma AI</a>
-
-<a href="https://kaiber.ai" target="_blank">Kaiber</a>
-
-<a href="https://pictory.ai" target="_blank">Pictory</a>
-</div>
-
-<!-- CARD -->
-<div class="tool-card">
-<h3>AI Image Generator</h3>
-
-<a href="https://leonardo.ai" target="_blank">Leonardo AI</a>
+<h3>AI Image Generators</h3>
 
 <a href="https://midjourney.com" target="_blank">Midjourney</a>
-
+<a href="https://leonardo.ai" target="_blank">Leonardo AI</a>
 <a href="https://playgroundai.com" target="_blank">Playground AI</a>
+<a href="https://canva.com" target="_blank">Canva AI</a>
 
-<a href="https://www.bing.com/images/create" target="_blank">Bing Create</a>
-
-<a href="https://canva.com" target="_blank">Canva</a>
 </div>
 
-<!-- CARD -->
 <div class="tool-card">
-<h3>AI Music Tools</h3>
+<h3>AI Video Tools</h3>
 
-<a href="https://pixabay.com/music/" target="_blank">Pixabay</a>
+<a href="https://runwayml.com" target="_blank">Runway ML</a>
+<a href="https://pika.art" target="_blank">Pika Labs</a>
+<a href="https://kaiber.ai" target="_blank">Kaiber</a>
+<a href="https://pictory.ai" target="_blank">Pictory</a>
 
-<a href="https://mixkit.co" target="_blank">Mixkit</a>
-
-<a href="https://voice.ai" target="_blank">Voice AI</a>
-
-<a href="https://freesound.org" target="_blank">FreeSound</a>
-
-<a href="https://soundraw.io" target="_blank">Soundraw</a>
 </div>
 
-<!-- CARD -->
 <div class="tool-card">
-<h3>Video Downloader</h3>
+<h3>SEO Tools</h3>
 
-<a href="https://savefrom.net" target="_blank">SaveFrom</a>
+<a href="https://semrush.com" target="_blank">Semrush</a>
+<a href="https://ahrefs.com" target="_blank">Ahrefs</a>
+<a href="https://moz.com" target="_blank">Moz</a>
+<a href="https://neilpatel.com/ubersuggest/" target="_blank">Ubersuggest</a>
 
-<a href="https://snaptik.app" target="_blank">SnapTik</a>
-
-<a href="https://igram.world" target="_blank">Instagram Saver</a>
-
-<a href="https://fdown.net" target="_blank">FDown</a>
-
-<a href="https://yt5s.io" target="_blank">YT5s</a>
-</div>
-
-<!-- CARD -->
-<div class="tool-card">
-<h3>Script Writing Tools</h3>
-
-<a href="https://chat.openai.com" target="_blank">ChatGPT</a>
-
-<a href="https://copy.ai" target="_blank">Copy.ai</a>
-
-<a href="https://writesonic.com" target="_blank">Writesonic</a>
-
-<a href="https://jasper.ai" target="_blank">Jasper AI</a>
-
-<a href="https://rytr.me" target="_blank">Rytr</a>
-</div>
-
-<!-- CARD -->
-<div class="tool-card">
-<h3>AI Caption Generator</h3>
-
-<a href="https://chat.openai.com" target="_blank">ChatGPT</a>
-
-<a href="https://copy.ai" target="_blank">Copy.ai</a>
-
-<a href="https://writesonic.com" target="_blank">Writesonic</a>
-
-<a href="https://jasper.ai" target="_blank">Jasper AI</a>
-
-<a href="https://rytr.me" target="_blank">Rytr</a>
-</div>
-
-<!-- CARD -->
-<div class="tool-card">
-<h3>AI Logo Designer</h3>
-
-<a href="https://canva.com" target="_blank">Canva</a>
-
-<a href="https://looka.com" target="_blank">Looka</a>
-
-<a href="https://www.hatchful.shopify.com" target="_blank">Hatchful</a>
-
-<a href="https://tailorbrands.com" target="_blank">Tailor Brands</a>
-
-<a href="https://brandcrowd.com" target="_blank">BrandCrowd</a>
-</div>
-
-<!-- CARD -->
-<div class="tool-card">
-<h3>AI Converter Tools</h3>
-
-<a href="https://cloudconvert.com" target="_blank">CloudConvert</a>
-
-<a href="https://convertio.co" target="_blank">Convertio</a>
-
-<a href="https://ilovepdf.com" target="_blank">iLovePDF</a>
-
-<a href="https://smallpdf.com" target="_blank">SmallPDF</a>
-
-<a href="https://zamzar.com" target="_blank">Zamzar</a>
-</div>
-
-<!-- CARD -->
-<div class="tool-card">
-<h3>Hashtag Generator</h3>
-
-<a href="https://inflact.com/tools/instagram-hashtag-generator/" target="_blank">Inflact</a>
-
-<a href="https://rapidtags.io" target="_blank">RapidTags</a>
-
-<a href="https://all-hashtag.com" target="_blank">All Hashtag</a>
-
-<a href="https://seekmetrics.com" target="_blank">SeekMetrics</a>
-
-<a href="https://hashtagmark.com" target="_blank">HashtagMark</a>
 </div>
 
 </div>
 
-<!-- FOOTER LINKS -->
-<div class="footer-links">
+<!-- CTA -->
 
-<a href="https://youtube.com" target="_blank">YouTube</a>
+<div class="cta">
 
-<a href="https://canva.com" target="_blank">Canva</a>
+<h2>
+Launch Faster With AI
+</h2>
 
-<a href="https://chat.openai.com" target="_blank">ChatGPT</a>
+<p>
+Explore powerful AI tools and grow your digital creator business faster than ever.
+</p>
 
-<a href="https://figma.com" target="_blank">Figma</a>
-
-<a href="https://capcut.com" target="_blank">CapCut</a>
+<a href="#tools" class="btn-primary">
+Start Exploring
+</a>
 
 </div>
 
