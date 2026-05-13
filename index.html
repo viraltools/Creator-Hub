@@ -1,133 +1,582 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Creator Hub Pro — 1000+ AI Tools Directory</title>
+<title>Creator Hub Pro</title>
 
-<meta name="description" content="Discover 1000+ AI tools for writing, design, coding, video, SEO, and automation. Creator Hub Pro is your all-in-one AI tools directory.">
-
-<meta name="keywords" content="AI tools, free AI tools, AI directory, ChatGPT tools, Midjourney tools, AI SEO tools, AI video tools">
-
-<meta name="author" content="Creator Hub Pro">
-
-<!-- FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- CSS -->
-<link rel="stylesheet" href="style.css">
+<style>
 
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+/* BACKGROUND EFFECT */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at top left, rgba(124,58,237,.25), transparent 30%),
+radial-gradient(circle at top right, rgba(6,182,212,.18), transparent 30%),
+radial-gradient(circle at bottom, rgba(236,72,153,.15), transparent 35%);
+z-index:-1;
+}
+
+/* CONTAINER */
+.container{
+width:92%;
+max-width:1300px;
+margin:auto;
+padding:40px 0;
+}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:20px 0 70px;
+}
+
+/* BADGE */
+.badge{
+display:inline-block;
+padding:10px 20px;
+border-radius:999px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+color:#c084fc;
+font-size:14px;
+margin-bottom:25px;
+}
+
+/* LOGO + TITLE */
+.brand-wrap{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:25px;
+flex-wrap:wrap;
+margin-bottom:25px;
+}
+
+/* LOGO */
+.main-logo{
+width:240px;
+height:auto;
+object-fit:contain;
+filter:
+drop-shadow(0 0 15px #7c3aed)
+drop-shadow(0 0 25px #06b6d4);
+animation:float 4s ease-in-out infinite;
+}
+
+/* FLOAT */
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0);}
+}
+
+/* TITLE */
+.hero-text h1{
+font-size:75px;
+font-weight:800;
+line-height:1;
+background:linear-gradient(
+90deg,
+#3b82f6,
+#06b6d4,
+#8b5cf6
+);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* TAGLINE */
+.tagline{
+margin-top:12px;
+font-size:16px;
+letter-spacing:2px;
+color:#cbd5e1;
+}
+
+/* DESCRIPTION */
+.hero-description{
+max-width:850px;
+margin:25px auto;
+font-size:18px;
+line-height:1.8;
+color:#cbd5e1;
+}
+
+/* BUTTONS */
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:16px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.btn-primary,
+.btn-secondary{
+padding:14px 30px;
+border-radius:14px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.btn-primary{
+background:linear-gradient(90deg,#7c3aed,#ec4899);
+color:white;
+box-shadow:0 0 25px rgba(168,85,247,.45);
+}
+
+.btn-primary:hover{
+transform:translateY(-3px);
+}
+
+.btn-secondary{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
+color:white;
+}
+/* STATS */
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:22px;
+margin-top:60px;
+}
+.stat-card{
+background:rgba(255,255,255,.04);
+border:1px solid rgba(124,58,237,.22);
+padding:35px 20px;
+border-radius:20px;
+text-align:center;
+}
+
+.stat-card h2{
+font-size:52px;
+color:#67e8f9;
+margin-bottom:10px;
+}
+
+/* SECTION TITLE */
+.section-title{
+text-align:center;
+margin:90px 0 45px;
+}
+
+.section-title h2{
+font-size:50px;
+font-weight:800;
+margin-bottom:12px;
+}
+
+.section-title p{
+color:#94a3b8;
+}
+
+/* TOOL GRID */
+.tools-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:24px;
+}
+
+/* CARD */
+.tool-card{
+background:rgba(255,255,255,.04);
+border:1px solid rgba(124,58,237,.25);
+padding:24px;
+border-radius:20px;
+transition:.3s;
+position:relative;
+overflow:hidden;
+}
+
+.tool-card:hover{
+transform:translateY(-6px);
+border-color:#06b6d4;
+}
+
+.tool-card::before{
+content:"";
+position:absolute;
+top:-40px;
+right:-40px;
+width:120px;
+height:120px;
+background:rgba(124,58,237,.15);
+border-radius:50%;
+}
+
+/* TOOL TITLE */
+.tool-card h3{
+font-size:28px;
+margin-bottom:18px;
+line-height:1.3;
+}
+
+/* TOOL LINKS */
+.tool-card a{
+display:block;
+padding:12px 14px;
+margin:10px 0;
+background:rgba(255,255,255,.05);
+border-radius:12px;
+text-decoration:none;
+color:white;
+transition:.3s;
+font-size:15px;
+}
+
+.tool-card a:hover{
+background:#7c3aed;
+}
+
+/* FOOTER LINKS */
+.footer-links{
+text-align:center;
+margin-top:70px;
+}
+
+.footer-links a{
+display:inline-block;
+margin:8px;
+padding:12px 20px;
+border-radius:12px;
+background:rgba(255,255,255,.05);
+text-decoration:none;
+color:white;
+transition:.3s;
+}
+
+.footer-links a:hover{
+background:#7c3aed;
+}
+
+/* FOOTER */
+footer{
+margin-top:50px;
+padding-bottom:30px;
+text-align:center;
+font-size:14px;
+color:#94a3b8;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.hero-text h1{
+font-size:48px;
+}
+
+.main-logo{
+width:110px;
+}
+
+.hero-description{
+font-size:15px;
+}
+
+.section-title h2{
+font-size:38px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
-<!-- GLOW EFFECT -->
-<div class="glow"></div>
-
-<!-- NAVBAR -->
-<header class="navbar">
-
-<div class="logo">
-🚀 Creator Hub Pro
-</div>
-
-<nav>
-<a href="#home">Home</a>
-<a href="#tools">Tools</a>
-<a href="#categories">Categories</a>
-<a href="#contact">Contact</a>
-</nav>
-
-</header>
+<div class="container">
 
 <!-- HERO -->
-<section class="hero" id="home">
+<section class="hero">
 
-<h1>
-Discover <span>1000+ AI Tools</span>
-</h1>
+<div class="badge">
+🚀 Powered by Creator AI Tools
+</div>
 
-<p>
-The ultimate AI tools directory for creators, developers, marketers, and businesses.
+<!-- LOGO + TITLE -->
+<div class="brand-wrap">
+
+<!-- YOUR LOGO -->
+<img src="./logo.png" class="main-logo" alt="Creator Hub Pro Logo">
+
+<div class="hero-text">
+<h1>Creator Hub Pro</h1>
+
+<p class="tagline">
+Create • Automate • Grow
+</p>
+</div>
+
+</div>
+
+<p class="hero-description">
+The ultimate AI creator toolkit platform for YouTubers, TikTok creators,
+bloggers, designers, and digital marketers. Generate videos, images,
+scripts, thumbnails, captions, hashtags, SEO content, logos,
+and more with powerful AI tools.
 </p>
 
-<!-- SEARCH -->
-<div class="search-box">
-<input type="text" id="searchInput" placeholder="Search AI tools...">
+<div class="hero-buttons">
+<a href="#tools" class="btn-primary">Explore AI Tools</a>
+<a href="https://chat.openai.com" target="_blank" class="btn-secondary">Open Websites</a>
 </div>
-
-<!-- FILTERS -->
-<div class="filters">
-<button onclick="filterTools('All')">All</button>
-<button onclick="filterTools('Writing')">Writing</button>
-<button onclick="filterTools('Image')">Image</button>
-<button onclick="filterTools('Video')">Video</button>
-<button onclick="filterTools('SEO')">SEO</button>
-<button onclick="filterTools('Coding')">Coding</button>
-<button onclick="filterTools('Voice')">Voice</button>
-<button onclick="filterTools('Automation')">Automation</button>
-</div>
-
-</section>
 
 <!-- STATS -->
-<section class="stats">
+<div class="stats">
 
 <div class="stat-card">
-<h2>1000+</h2>
-<p>AI Tools</p>
+<h2>50+</h2>
+<p>AI Creator Tools</p>
 </div>
 
 <div class="stat-card">
 <h2>100K+</h2>
-<p>Users</p>
+<p>Monthly Users</p>
 </div>
 
 <div class="stat-card">
-<h2>50+</h2>
-<p>Categories</p>
+<h2>24/7</h2>
+<p>Instant AI Access</p>
+</div>
+</div>
+</section>
+<!-- SECTION TITLE -->
+<div class="section-title">
+<h2>Explore Powerful AI Creator Tools in One Page </h2>
+<p>Everything you need to grow your content creation business.</p>
 </div>
 
-</section>
+<!-- TOOLS -->
+<div class="tools-grid" id="tools">
 
-<!-- SECTION TITLE -->
-<section class="section-title" id="tools">
+<!-- CARD -->
+<div class="tool-card">
+<h3>AI Description Generator</h3>
 
-<h2>Explore AI Tools</h2>
-<p>Hand-picked AI tools for productivity, creativity & business growth</p>
+<a href="https://chat.openai.com" target="_blank">ChatGPT</a>
 
-</section>
+<a href="https://copy.ai" target="_blank">Copy.ai</a>
 
-<!-- TOOLS GRID -->
-<section class="tools-grid" id="toolsGrid">
-<!-- JS injects tools here -->
-</section>
+<a href="https://writesonic.com" target="_blank">Writesonic</a>
 
-<!-- CTA -->
-<section class="cta">
+<a href="https://jasper.ai" target="_blank">Jasper AI</a>
 
-<h2>Grow Faster With AI Tools</h2>
+<a href="https://rytr.me" target="_blank">Rytr</a>
+</div>
 
-<p>
-Access the most powerful AI tools in one place and scale your work faster.
-</p>
+<!-- CARD -->
+<div class="tool-card">
+<h3>AI Thumbnail Generator</h3>
 
-<a href="#tools" class="btn">Explore Tools</a>
+<a href="https://canva.com" target="_blank">Canva</a>
 
-</section>
+<a href="https://www.adobe.com/express/" target="_blank">Adobe Express</a>
 
-<!-- FOOTER -->
+<a href="https://fotor.com" target="_blank">Fotor</a>
+
+<a href="https://pixlr.com" target="_blank">Pixlr</a>
+
+<a href="https://picmonkey.com" target="_blank">PicMonkey</a>
+</div>
+
+<!-- CARD -->
+<div class="tool-card">
+<h3>SEO Optimization Tools</h3>
+
+<a href="https://semrush.com" target="_blank">Semrush</a>
+
+<a href="https://ahrefs.com" target="_blank">Ahrefs</a>
+
+<a href="https://moz.com" target="_blank">Moz</a>
+
+<a href="https://neilpatel.com/ubersuggest/" target="_blank">Ubersuggest</a>
+
+<a href="https://search.google.com/search-console/about" target="_blank">Google SEO</a>
+</div>
+
+<!-- CARD -->
+<div class="tool-card">
+<h3>AI Video Generator</h3>
+
+<a href="https://runwayml.com" target="_blank">Runway ML</a>
+
+<a href="https://pika.art" target="_blank">Pika Labs</a>
+
+<a href="https://lumalabs.ai/dream-machine" target="_blank">Luma AI</a>
+
+<a href="https://kaiber.ai" target="_blank">Kaiber</a>
+
+<a href="https://pictory.ai" target="_blank">Pictory</a>
+</div>
+
+<!-- CARD -->
+<div class="tool-card">
+<h3>AI Image Generator</h3>
+
+<a href="https://leonardo.ai" target="_blank">Leonardo AI</a>
+
+<a href="https://midjourney.com" target="_blank">Midjourney</a>
+
+<a href="https://playgroundai.com" target="_blank">Playground AI</a>
+
+<a href="https://www.bing.com/images/create" target="_blank">Bing Create</a>
+
+<a href="https://canva.com" target="_blank">Canva</a>
+</div>
+
+<!-- CARD -->
+<div class="tool-card">
+<h3>AI Music Tools</h3>
+
+<a href="https://pixabay.com/music/" target="_blank">Pixabay</a>
+
+<a href="https://mixkit.co" target="_blank">Mixkit</a>
+
+<a href="https://voice.ai" target="_blank">Voice AI</a>
+
+<a href="https://freesound.org" target="_blank">FreeSound</a>
+
+<a href="https://soundraw.io" target="_blank">Soundraw</a>
+</div>
+
+<!-- CARD -->
+<div class="tool-card">
+<h3>Video Downloader</h3>
+
+<a href="https://savefrom.net" target="_blank">SaveFrom</a>
+
+<a href="https://snaptik.app" target="_blank">SnapTik</a>
+
+<a href="https://igram.world" target="_blank">Instagram Saver</a>
+
+<a href="https://fdown.net" target="_blank">FDown</a>
+
+<a href="https://yt5s.io" target="_blank">YT5s</a>
+</div>
+
+<!-- CARD -->
+<div class="tool-card">
+<h3>Script Writing Tools</h3>
+
+<a href="https://chat.openai.com" target="_blank">ChatGPT</a>
+
+<a href="https://copy.ai" target="_blank">Copy.ai</a>
+
+<a href="https://writesonic.com" target="_blank">Writesonic</a>
+
+<a href="https://jasper.ai" target="_blank">Jasper AI</a>
+
+<a href="https://rytr.me" target="_blank">Rytr</a>
+</div>
+
+<!-- CARD -->
+<div class="tool-card">
+<h3>AI Caption Generator</h3>
+
+<a href="https://chat.openai.com" target="_blank">ChatGPT</a>
+
+<a href="https://copy.ai" target="_blank">Copy.ai</a>
+
+<a href="https://writesonic.com" target="_blank">Writesonic</a>
+
+<a href="https://jasper.ai" target="_blank">Jasper AI</a>
+
+<a href="https://rytr.me" target="_blank">Rytr</a>
+</div>
+
+<!-- CARD -->
+<div class="tool-card">
+<h3>AI Logo Designer</h3>
+
+<a href="https://canva.com" target="_blank">Canva</a>
+
+<a href="https://looka.com" target="_blank">Looka</a>
+
+<a href="https://www.hatchful.shopify.com" target="_blank">Hatchful</a>
+
+<a href="https://tailorbrands.com" target="_blank">Tailor Brands</a>
+
+<a href="https://brandcrowd.com" target="_blank">BrandCrowd</a>
+</div>
+
+<!-- CARD -->
+<div class="tool-card">
+<h3>AI Converter Tools</h3>
+
+<a href="https://cloudconvert.com" target="_blank">CloudConvert</a>
+
+<a href="https://convertio.co" target="_blank">Convertio</a>
+
+<a href="https://ilovepdf.com" target="_blank">iLovePDF</a>
+
+<a href="https://smallpdf.com" target="_blank">SmallPDF</a>
+
+<a href="https://zamzar.com" target="_blank">Zamzar</a>
+</div>
+
+<!-- CARD -->
+<div class="tool-card">
+<h3>Hashtag Generator</h3>
+
+<a href="https://inflact.com/tools/instagram-hashtag-generator/" target="_blank">Inflact</a>
+
+<a href="https://rapidtags.io" target="_blank">RapidTags</a>
+
+<a href="https://all-hashtag.com" target="_blank">All Hashtag</a>
+
+<a href="https://seekmetrics.com" target="_blank">SeekMetrics</a>
+
+<a href="https://hashtagmark.com" target="_blank">HashtagMark</a>
+</div>
+
+</div>
+
+<!-- FOOTER LINKS -->
+<div class="footer-links">
+
+<a href="https://youtube.com" target="_blank">YouTube</a>
+
+<a href="https://canva.com" target="_blank">Canva</a>
+
+<a href="https://chat.openai.com" target="_blank">ChatGPT</a>
+
+<a href="https://figma.com" target="_blank">Figma</a>
+
+<a href="https://capcut.com" target="_blank">CapCut</a>
+
+</div>
+
 <footer>
-
-<p>© 2026 Creator Hub Pro. All rights reserved.</p>
-
+© 2026 Creator Hub Pro — All Rights Reserved
 </footer>
 
-<!-- JS -->
-<script src="script.js"></script>
+</div>
 
 </body>
 </html>
